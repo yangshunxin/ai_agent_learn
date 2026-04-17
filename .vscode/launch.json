@@ -1,0 +1,66 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "statistic_db_mcp_tools",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/statistic_db_mcp_tools.py",
+            "console": "integratedTerminal" 
+        },
+        {
+            "name": "python_chart_mcp",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/python_chart_mcp.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "machine_learning_mcp",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/machine_learning_mcp.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "multi_mcp_client",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/multi_mcp_client.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "langGraph_code",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/langGraph_basic_learning/langGraph_code.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "multi_graph",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/chatbi_graph/execute_graph.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "graph_hello_world",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/langGraph_basic_learning/graph_hello_world.py",
+            "console": "integratedTerminal"
+        }
+        
+    ]
+}
