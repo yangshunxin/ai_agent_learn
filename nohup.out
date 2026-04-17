@@ -1,0 +1,13 @@
+error: Failed to spawn: `statistic_db_mcp_tools.py`
+  Caused by: No such file or directory (os error 2)
+INFO:     Started server process [250861]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9004 (Press CTRL+C to quit)
+INFO:     Started server process [250897]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 9004): [errno 98] address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+db_url:postgresql://postgres:postgres@192.168.78.130:5432/postgres

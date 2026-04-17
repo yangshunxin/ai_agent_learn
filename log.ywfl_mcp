@@ -1,0 +1,211 @@
+nohup: ignoring input
+INFO:     Started server process [295898]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9005 (Press CTRL+C to quit)
+Created new transport with session ID: 35a1a161c7e948c685d225f4c940f4d4
+INFO:     192.168.78.130:50838 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:50846 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:50862 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:50872 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:52772 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Created new transport with session ID: b6f142ee68d145af922641ed8af08b64
+INFO:     192.168.78.130:56684 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56696 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:56712 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56720 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 5ae40a64487340b8b19f3bca3d97d2d9
+INFO:     192.168.78.130:44142 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44148 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:44164 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44174 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: f4ca93bc07c749b396ea84413db6e963
+INFO:     192.168.78.130:51656 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:51664 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:51674 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:51680 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 0e00f638e28d4fd585748909053b1752
+INFO:     192.168.78.130:59476 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59492 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:59504 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59510 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 971cfe9cbc63404880ff05bb9cbfe4b7
+INFO:     192.168.78.130:42706 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42716 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:42726 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42740 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: b51a4c7d5e814c02932638099b853e07
+INFO:     192.168.78.130:54884 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54894 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:54896 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54900 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 1b54b3dcbf0e4b7d9ef67f0bc00e9d07
+INFO:     192.168.78.130:36298 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36304 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:36314 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36318 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: 1b54b3dcbf0e4b7d9ef67f0bc00e9d07
+INFO:     192.168.78.130:49462 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: a10f110538cb4b5082dc899ebed1c0cd
+INFO:     192.168.78.130:55398 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55400 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:55416 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55428 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: a10f110538cb4b5082dc899ebed1c0cd
+INFO:     192.168.78.130:46910 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: b4f1f4398bb945808269ec3c56df633c
+INFO:     192.168.78.130:35478 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35488 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:35492 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35494 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: efe25be5c39f467b95afd7bb30c099a4
+INFO:     192.168.78.130:57188 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:57190 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:57196 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:57198 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 0684cd48ed46461eba996bb58498753d
+INFO:     192.168.78.130:54566 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54570 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:54574 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54586 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 6479f81e0e744baeaaef32d1608270b2
+INFO:     192.168.78.130:52584 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52600 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:52602 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52614 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: a6b9016889f04edb867859a88a56899f
+INFO:     192.168.78.130:45552 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45562 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:45578 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45580 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 05d71536cc2646c480c59dbd154e1811
+INFO:     192.168.78.130:58788 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58798 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:58808 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58822 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:54618 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Created new transport with session ID: bef70942c2224ab586d2df40b0add659
+INFO:     192.168.78.130:47844 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47852 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:47868 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47884 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:43136 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: bef70942c2224ab586d2df40b0add659
+INFO:     192.168.78.130:45268 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 203a46ffc488419ab14ad016433cba67
+INFO:     192.168.78.130:42314 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42326 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:42332 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42344 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:57040 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: 203a46ffc488419ab14ad016433cba67
+INFO:     192.168.78.130:54690 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: cd138ff2b46042a8a83ebdbedc19a055
+INFO:     192.168.78.130:42040 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42052 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:42060 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42072 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:51994 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: cd138ff2b46042a8a83ebdbedc19a055
+INFO:     192.168.78.130:51996 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 1ef4e869cd154c3d9854775af69c94c6
+INFO:     192.168.78.130:56184 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56194 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:56204 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56206 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:40434 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: 1ef4e869cd154c3d9854775af69c94c6
+INFO:     192.168.78.130:40440 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: f726512ceedb46d6acf653b6f118ac4f
+INFO:     192.168.78.130:35184 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35196 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:35204 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35212 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:39900 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: f726512ceedb46d6acf653b6f118ac4f
+INFO:     192.168.78.130:39908 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: adbfbad955764d0499cb7416db879879
+INFO:     192.168.78.130:39722 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:39726 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:39730 - "GET /mcp HTTP/1.1" 200 OK
+Terminating session: adbfbad955764d0499cb7416db879879
+INFO:     192.168.78.130:39732 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: f464acf5dfb0410db544bfb512e7889b
+INFO:     192.168.78.130:43438 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43448 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:43456 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43464 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:46296 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: f464acf5dfb0410db544bfb512e7889b
+INFO:     192.168.78.130:46304 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: a43ef97ae12947af9ddfd9219a8cdc07
+INFO:     192.168.78.130:57220 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:57232 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:57244 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:57246 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 064ae286e65a4a8688a2b3d86419bb9c
+INFO:     192.168.78.130:55772 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55784 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:55788 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55790 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:51964 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+Terminating session: 064ae286e65a4a8688a2b3d86419bb9c
+INFO:     192.168.78.130:51974 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: a2a04b20ce7c43fbb9db4cbf43f2d8f6
+INFO:     192.168.78.130:50504 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:50510 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:50520 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:50524 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: a2a04b20ce7c43fbb9db4cbf43f2d8f6
+INFO:     192.168.78.130:50530 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 207bf1992e3e4db99f037251f949de73
+INFO:     192.168.78.130:58904 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58908 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:58924 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58934 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: 207bf1992e3e4db99f037251f949de73
+INFO:     192.168.78.130:58936 - "DELETE /mcp HTTP/1.1" 200 OK

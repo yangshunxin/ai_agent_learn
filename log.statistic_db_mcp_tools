@@ -1,0 +1,1064 @@
+nohup: ignoring input
+INFO:     Started server process [310484]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9004 (Press CTRL+C to quit)
+Created new transport with session ID: 2d551b10dc60461ea2ee2dbae58c3740
+db_url:postgresql://postgres:postgres@192.168.78.130:5432/postgres
+INFO:     192.168.78.130:58818 - "GET /mcp HTTP/1.1" 400 Bad Request
+Created new transport with session ID: cc295a9e07a74b28b0fb11af164e5140
+INFO:     192.168.78.130:41926 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Created new transport with session ID: cccc8509d28448bfb9c9fc28df91eac9
+INFO:     192.168.78.130:35354 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35356 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:35366 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:35378 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: cccc8509d28448bfb9c9fc28df91eac9
+INFO:     192.168.78.130:45090 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 9da07d4c73574a73b81507b386f459ec
+INFO:     192.168.78.130:53620 - "GET /mcp HTTP/1.1" 400 Bad Request
+Created new transport with session ID: 6f97b89de8d04bc7a220599a5e041ed9
+INFO:     192.168.78.130:47450 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47460 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:47462 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47466 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:33284 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:33286 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:55980 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:57082 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(product_price) as avg_food_price FROM food_price_list
+db_sql_tool response:[(5.919666667317236,)]
+INFO:     192.168.78.130:57090 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: "2,999"
+
+[SQL: SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:36056 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name, product_price FROM sports_goods_price_list LIMIT 10
+db_sql_tool response:[('瑜伽垫', '89.9'), ('跑步机', '2,999'), ('健身哑铃套装', '399'), ('运动水壶', '50'), ('篮球', '129'), ('足球', '159'), ('羽毛球拍', '199'), ('乒乓球拍套装', '159'), ('跳绳', '30'), ('运动护膝', '59')]
+INFO:     192.168.78.130:36064 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: ""
+
+[SQL: SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:60370 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT COUNT(*) FROM sports_goods_price_list WHERE product_price = '' OR product_price IS NULL
+db_sql_tool response:[(1,)]
+INFO:     192.168.78.130:60372 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name, product_price FROM sports_goods_price_list WHERE product_price = '' OR product_price IS NULL
+db_sql_tool response:[('', '')]
+INFO:     192.168.78.130:57230 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list WHERE product_price != '' AND product_price IS NOT NULL
+db_sql_tool response:[(Decimal('297.7426666666666667'),)]
+INFO:     192.168.78.130:57240 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  (SELECT AVG(product_price) FROM food_price_list) as avg_food_price,
+  (SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) FROM sports_goods_price_list WHERE product_price != '' AND product_price IS NOT NULL) as avg_sports_price
+db_sql_tool response:[(5.919666667317236, Decimal('297.7426666666666667'))]
+INFO:     192.168.78.130:34538 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  (SELECT COUNT(*) FROM food_price_list) as food_count,
+  (SELECT COUNT(*) FROM sports_goods_price_list WHERE product_price != '' AND product_price IS NOT NULL) as sports_count
+db_sql_tool response:[(301, 300)]
+INFO:     192.168.78.130:34548 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  MIN(product_price) as min_food_price,
+  MAX(product_price) as max_food_price
+FROM food_price_list
+db_sql_tool response:[(1.5, 10.0)]
+INFO:     192.168.78.130:52386 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  MIN(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as min_sports_price,
+  MAX(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as max_sports_price
+FROM sports_goods_price_list 
+WHERE product_price != '' AND product_price IS NOT NULL
+db_sql_tool response:[(Decimal('9'), Decimal('5999'))]
+Created new transport with session ID: 91b142d9b2c64230add2a8dcb434e8a0
+INFO:     192.168.78.130:58956 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58968 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:58982 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58990 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: d17e11c9ebc64e11801b6487be48bdbd
+INFO:     192.168.78.130:45530 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45542 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:45546 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45558 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: d17e11c9ebc64e11801b6487be48bdbd
+INFO:     192.168.78.130:54008 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 1340468491ec49e5a89e171f2d0dbe15
+INFO:     192.168.78.130:41208 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41218 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:41220 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41234 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: 1340468491ec49e5a89e171f2d0dbe15
+INFO:     192.168.78.130:41248 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 6663d07796bb49f589f28646f2547b5f
+INFO:     192.168.78.130:58942 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58946 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:58954 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58970 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: 6663d07796bb49f589f28646f2547b5f
+INFO:     192.168.78.130:58972 - "DELETE /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 2c93edcef66447889ac1dcc004deb954
+INFO:     192.168.78.130:36466 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36468 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:36480 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36482 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:58272 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:58274 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:53548 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:53554 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(product_price::numeric) as avg_food_price FROM food_price_list
+db_sql_tool response:[(Decimal('5.9196666777408638'),)]
+INFO:     192.168.78.130:53568 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(product_price::numeric) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: "2,999"
+
+[SQL: SELECT AVG(product_price::numeric) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:60774 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name, product_price FROM sports_goods_price_list LIMIT 10
+db_sql_tool response:[('瑜伽垫', '89.9'), ('跑步机', '2,999'), ('健身哑铃套装', '399'), ('运动水壶', '50'), ('篮球', '129'), ('足球', '159'), ('羽毛球拍', '199'), ('乒乓球拍套装', '159'), ('跳绳', '30'), ('运动护膝', '59')]
+INFO:     192.168.78.130:60786 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(REPLACE(product_price, ',', '')::numeric) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: ""
+
+[SQL: SELECT AVG(REPLACE(product_price, ',', '')::numeric) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:58734 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT COUNT(*) as total_count, 
+       COUNT(CASE WHEN product_price = '' THEN 1 END) as empty_count,
+       COUNT(CASE WHEN product_price IS NULL THEN 1 END) as null_count
+FROM sports_goods_price_list
+db_sql_tool response:[(301, 1, 0)]
+INFO:     192.168.78.130:58750 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(REPLACE(product_price, ',', '')::numeric) as avg_sports_price 
+FROM sports_goods_price_list 
+WHERE product_price != '' AND product_price IS NOT NULL
+db_sql_tool response:[(Decimal('297.7426666666666667'),)]
+INFO:     192.168.78.130:58760 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT COUNT(*) as total_count, 
+       COUNT(CASE WHEN product_price IS NULL THEN 1 END) as null_count
+FROM food_price_list
+db_sql_tool response:[(301, 0)]
+INFO:     192.168.78.130:44974 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  '食品' as category,
+  COUNT(*) as product_count,
+  AVG(product_price::numeric) as avg_price,
+  MIN(product_price::numeric) as min_price,
+  MAX(product_price::numeric) as max_price
+FROM food_price_list
+
+UNION ALL
+
+SELECT 
+  '运动用品' as category,
+  COUNT(*) as product_count,
+  AVG(REPLACE(product_price, ',', '')::numeric) as avg_price,
+  MIN(REPLACE(product_price, ',', '')::numeric) as min_price,
+  MAX(REPLACE(product_price, ',', '')::numeric) as max_price
+FROM sports_goods_price_list 
+WHERE product_price != '' AND product_price IS NOT NULL
+db_sql_tool response:[('食品', 301, Decimal('5.9196666777408638'), Decimal('1.5'), Decimal('10')), ('运动用品', 300, Decimal('297.7426666666666667'), Decimal('9'), Decimal('5999'))]
+INFO:     192.168.78.130:52206 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:52218 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:52234 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:59818 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM product_monthly_sales_statistic WHERE product_name LIKE '%银耳%' OR product_name LIKE '%木耳%' OR product_name LIKE '%Tremella%'
+db_sql_tool response:[('木耳', 1, 2, 3, 2, 1, 2, 1, 2, 4, 2, 5, 8), ('银耳', 3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12), ('银耳', 3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12), ('木耳', 1, 2, 3, 2, 1, 2, 1, 2, 4, 2, 5, 8), ('银耳', 3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12), ('银耳', 25, 30, 45, 50, 55, 70, 75, 90, 50, 35, 30, 45)]
+INFO:     192.168.78.130:50126 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:50140 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:50156 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:55924 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:55930 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:55944 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:38050 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:38060 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:38070 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:60674 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:60680 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:60688 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+Created new transport with session ID: 3ec0a26c79804698b4cc2921b301289f
+INFO:     192.168.78.130:54386 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54398 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:54410 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54412 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:58044 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:58052 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36620 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:36626 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(product_price) as avg_food_price FROM food_price_list
+db_sql_tool response:[(5.919666667317236,)]
+INFO:     192.168.78.130:35996 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: "2,999"
+
+[SQL: SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+Created new transport with session ID: fed8fe9839764a38b5266061ad34ee21
+INFO:     192.168.78.130:36800 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36802 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:36810 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36816 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:47598 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:47604 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:39192 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:42068 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(product_price) as avg_food_price FROM food_price_list
+db_sql_tool response:[(5.919666667317236,)]
+INFO:     192.168.78.130:59906 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: "2,999"
+
+[SQL: SELECT AVG(CAST(product_price AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:52432 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list
+db_sql_tool response:Error: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type numeric: ""
+
+[SQL: SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+INFO:     192.168.78.130:52048 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name, product_price FROM sports_goods_price_list LIMIT 10
+db_sql_tool response:[('瑜伽垫', '89.9'), ('跑步机', '2,999'), ('健身哑铃套装', '399'), ('运动水壶', '50'), ('篮球', '129'), ('足球', '159'), ('羽毛球拍', '199'), ('乒乓球拍套装', '159'), ('跳绳', '30'), ('运动护膝', '59')]
+INFO:     192.168.78.130:45152 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) as avg_sports_price FROM sports_goods_price_list WHERE product_price IS NOT NULL AND product_price != ''
+db_sql_tool response:[(Decimal('297.7426666666666667'),)]
+INFO:     192.168.78.130:49096 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  (SELECT AVG(product_price) FROM food_price_list) as avg_food_price,
+  (SELECT AVG(CAST(REPLACE(product_price, ',', '') AS DECIMAL)) FROM sports_goods_price_list WHERE product_price IS NOT NULL AND product_price != '') as avg_sports_price
+db_sql_tool response:[(5.919666667317236, Decimal('297.7426666666666667'))]
+INFO:     192.168.78.130:59212 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  (SELECT COUNT(*) FROM food_price_list) as food_count,
+  (SELECT COUNT(*) FROM sports_goods_price_list WHERE product_price IS NOT NULL AND product_price != '') as sports_count
+db_sql_tool response:[(301, 300)]
+INFO:     192.168.78.130:34356 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:34370 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:37484 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:57804 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT reviews, stars FROM product_reviews WHERE product_name LIKE '%银耳%' OR product_name LIKE '%白木耳%' OR product_name LIKE '%雪耳%'
+db_sql_tool response:[('银耳无硫熏，孕妇吃着放心！', 5), ('银耳颜色发黄，怀疑硫磺熏过！', 2), ('银耳宣传“有机”实际无认证，虚假宣传！', 2), ('这款银耳泡发率超高，一小朵就能煮一大锅胶质满满的银耳羹！', 5), ('煮银耳时加点桂花，香气扑鼻，幸福感爆棚！', 5), ('银耳煮完胶质满满，感觉皮肤变好了！', 5), ('复购的银耳品质下降，不再买了！', 1), ('比超市买的银耳更干净，几乎无杂质，洗一遍就能煮！', 5), ('银耳包装密封性好，干燥无杂质，推荐！', 5), ('泡发率高的银耳，一小朵能煮一大锅！', 5), ('银耳价格虚高，比菜市场贵一倍！', 3), ('银耳碎渣少，朵形完整，一看就是精选好货！', 4), ('这款银耳质量稳定，每次炖甜品都满意！', 5), ('煮完银耳汤黏稠度刚好，口感细腻，喜欢！', 5), ('银耳价格实惠，学生党也能天天吃！', 5), ('这次银耳有霉味，不敢吃，差评！', 2), ('物流慢，银耳到货时包装全破了！', 2), ('银耳炖牛奶超好喝，比奶茶健康多了，孩子也喜欢！', 5), ('回购N次的银耳，品质稳定，出胶快，性价比之王！', 5), ('银耳炖桃胶、皂角米绝配，养颜圣品，女生必囤！', 4), ('客服态度超好，银耳问题解答超耐心，购物体验满分！', 5), ('包装漏气，银耳受潮结块了！', 2), ('银耳分量缩水，和描述不符！', 2), ('即食银耳超方便，早上加热2分钟就能喝，营养又省时！', 4), ('银耳无硫熏，颜色自然，孕妇和宝宝都能放心吃！', 5), ('卖家送的银耳食谱超实用，解锁了超多新吃法！', 5), ('包装密封性超好，银耳干燥不返潮，储存方便！', 5), ('银耳羹美容养颜，觉得很有营养！', 5), ('银耳搭配红枣枸杞绝了，营养又美味！', 4), ('银耳品质好，比线下店新鲜，会长期买！', 5), ('银耳碎渣太多，泡发后全是小颗粒！', 3), ('煮完银耳汤发酸，质量有问题！', 0), ('银耳杂质多，洗了三遍还有沙子！', 2), ('客服态度差，银耳问题不解决！', 2), ('银耳胶质丰富，长期吃感觉皮肤更水润了！', 5), ('银耳煮后胶质浓稠，冷藏后像果冻一样，超赞！', 5), ('复购多次的银耳，出胶快，性价比超高！', 5), ('即食银耳方便快捷，早餐必备！', 4), ('银耳煮一小时都不出胶，垃圾食品！', 2), ('银耳炖不烂，口感像树皮！', 2), ('银耳搭配红枣、枸杞炖煮，香甜滋补，秋冬必备！', 5), ('银耳低卡又饱腹，减肥期当代餐超合适！', 5), ('银耳泡发后煮粥特别软糯，全家都爱喝！', 4), ('银耳分量足，价格比超市便宜，会继续买！', 5), ('银耳炖桃胶口感顺滑，愿意复购！', 5), ('即食银耳太甜，香精味重，不喜欢！', 2), ('银耳口感细腻软糯，炖汤后入口即化，全家人都超爱！', 4), ('独立小包装银耳，干净卫生，一次一包刚刚好！', 5), ('银耳搭配雪梨炖煮，润肺止咳，换季必备！', 5)]
+INFO:     192.168.78.130:57812 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT COUNT(*) as total_reviews, AVG(stars) as avg_stars FROM product_reviews WHERE product_name LIKE '%银耳%' OR product_name LIKE '%白木耳%' OR product_name LIKE '%雪耳%'
+db_sql_tool response:[(49, Decimal('3.9183673469387755'))]
+INFO:     192.168.78.130:38068 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT stars, reviews FROM product_reviews WHERE product_name LIKE '%银耳%' OR product_name LIKE '%白木耳%' OR product_name LIKE '%雪耳%' ORDER BY stars DESC
+db_sql_tool response:[(5, '复购多次的银耳，出胶快，性价比超高！'), (5, '银耳包装密封性好，干燥无杂质，推荐！'), (5, '泡发率高的银耳，一小朵能煮一大锅！'), (5, '这款银耳质量稳定，每次炖甜品都满意！'), (5, '煮完银耳汤黏稠度刚好，口感细腻，喜欢！'), (5, '银耳价格实惠，学生党也能天天吃！'), (5, '银耳炖牛奶超好喝，比奶茶健康多了，孩子也喜欢！'), (5, '回购N次的银耳，品质稳定，出胶快，性价比之王！'), (5, '客服态度超好，银耳问题解答超耐心，购物体验满分！'), (5, '银耳无硫熏，颜色自然，孕妇和宝宝都能放心吃！'), (5, '卖家送的银耳食谱超实用，解锁了超多新吃法！'), (5, '包装密封性超好，银耳干燥不返潮，储存方便！'), (5, '银耳羹美容养颜，觉得很有营养！'), (5, '银耳品质好，比线下店新鲜，会长期买！'), (5, '银耳胶质丰富，长期吃感觉皮肤更水润了！'), (5, '银耳煮后胶质浓稠，冷藏后像果冻一样，超赞！'), (5, '银耳无硫熏，孕妇吃着放心！'), (5, '银耳搭配红枣、枸杞炖煮，香甜滋补，秋冬必备！'), (5, '银耳低卡又饱腹，减肥期当代餐超合适！'), (5, '银耳分量足，价格比超市便宜，会继续买！'), (5, '银耳炖桃胶口感顺滑，愿意复购！'), (5, '独立小包装银耳，干净卫生，一次一包刚刚好！'), (5, '银耳搭配雪梨炖煮，润肺止咳，换季必备！'), (5, '这款银耳泡发率超高，一小朵就能煮一大锅胶质满满的银耳羹！'), (5, '煮银耳时加点桂花，香气扑鼻，幸福感爆棚！'), (5, '银耳煮完胶质满满，感觉皮肤变好了！'), (5, '比超市买的银耳更干净，几乎无杂质，洗一遍就能煮！'), (4, '银耳搭配红枣枸杞绝了，营养又美味！'), (4, '银耳碎渣少，朵形完整，一看就是精选好货！'), (4, '银耳口感细腻软糯，炖汤后入口即化，全家人都超爱！'), (4, '即食银耳方便快捷，早餐必备！'), (4, '即食银耳超方便，早上加热2分钟就能喝，营养又省时！'), (4, '银耳泡发后煮粥特别软糯，全家都爱喝！'), (4, '银耳炖桃胶、皂角米绝配，养颜圣品，女生必囤！'), (3, '银耳碎渣太多，泡发后全是小颗粒！'), (3, '银耳价格虚高，比菜市场贵一倍！'), (2, '银耳分量缩水，和描述不符！'), (2, '银耳宣传“有机”实际无认证，虚假宣传！'), (2, '银耳煮一小时都不出胶，垃圾食品！'), (2, '银耳炖不烂，口感像树皮！'), (2, '包装漏气，银耳受潮结块了！'), (2, '银耳颜色发黄，怀疑硫磺熏过！'), (2, '这次银耳有霉味，不敢吃，差评！'), (2, '物流慢，银耳到货时包装全破了！'), (2, '银耳杂质多，洗了三遍还有沙子！'), (2, '客服态度差，银耳问题不解决！'), (2, '即食银耳太甜，香精味重，不喜欢！'), (1, '复购的银耳品质下降，不再买了！'), (0, '煮完银耳汤发酸，质量有问题！')]
+INFO:     192.168.78.130:38332 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:38344 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:50962 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:50978 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:59356 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+list_tables_tool call no need input
+list_tables_tool response:表名: food_price_list [注释: 食品类商品价格表，存放所有食品单价和名称]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: handicraft_price_list [注释: 工艺品、装饰品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (integer) [注释: 商品价格]
+
+表名: home_goods_price_list [注释: 家具类商品价格列表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (real) [注释: 商品价格]
+
+表名: product_monthly_sales_statistic [注释: 商品月度销量统计]
+  - product_name (character varying) [注释: 商品名称]
+  - 1月销量 (integer) [注释: 无列注释]
+  - 2月销量 (integer) [注释: 无列注释]
+  - 3月销量 (integer) [注释: 无列注释]
+  - 4月销量 (integer) [注释: 无列注释]
+  - 5月销量 (integer) [注释: 无列注释]
+  - 6月销量 (integer) [注释: 无列注释]
+  - 7月销量 (integer) [注释: 无列注释]
+  - 8月销量 (integer) [注释: 无列注释]
+  - 9月销量 (integer) [注释: 无列注释]
+  - 10月销量 (integer) [注释: 无列注释]
+  - 11月销量 (integer) [注释: 无列注释]
+  - 12月销量 (integer) [注释: 无列注释]
+
+表名: product_reviews [注释: 商品评价表]
+  - date (character varying) [注释: 日期]
+  - reviews (character varying) [注释: 用户评价]
+  - stars (integer) [注释: 星级评价]
+  - product_name (character varying) [注释: 商品名称]
+
+表名: sales_detail_records_table [注释: 销售记录详情表]
+  - purchase_date (character varying) [注释: 购买时间]
+  - userid (character varying) [注释: 用户ID]
+  - product_name (character varying) [注释: 购买的商品名称]
+  - username (character varying) [注释: 用户名称]
+
+表名: sports_goods_price_list [注释: 运动用品类商品价格表]
+  - product_no (character varying) [注释: 商品ID]
+  - product_name (character varying) [注释: 商品名称]
+  - product_price (character varying) [注释: 商品价格]
+
+表名: user_information_table [注释: 用户信息表]
+  - userid (character varying) [注释: 用户ID]
+  - username (character varying) [注释: 用户名]
+  - register_date (character varying) [注释: 平台注册日期]
+  - self_description (character varying) [注释: 自我描述]
+  - occupation (character varying) [注释: 职业]
+
+表名: user_online_record [注释: 用户在线记录表]
+  - userid (character varying) [注释: 用户ID]
+  - load_time (character varying) [注释: 登录时间]
+  - online_time (integer) [注释: 在线时长（单位为分钟）]
+  - username (character varying) [注释: 用户名]
+INFO:     192.168.78.130:59372 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM sports_goods_price_list LIMIT 10;
+db_sql_tool response:[('T1', '瑜伽垫', '89.9'), ('T2', '跑步机', '2,999'), ('T3', '健身哑铃套装', '399'), ('T4', '运动水壶', '50'), ('T5', '篮球', '129'), ('T6', '足球', '159'), ('T7', '羽毛球拍', '199'), ('T8', '乒乓球拍套装', '159'), ('T9', '跳绳', '30'), ('T10', '运动护膝', '59')]
+INFO:     192.168.78.130:39380 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM food_price_list LIMIT 10;
+db_sql_tool response:[('F1', '奇多', 5.5), ('F2', '金华火腿', 2.0), ('F3', '薯片', 3.8), ('F4', '巧克力', 6.2), ('F5', '牛肉干', 7.5), ('F6', '矿泉水', 1.5), ('F7', '饼干', 4.0), ('F8', '方便面', 3.5), ('F9', '口香糖', 2.8), ('F10', '酸奶', 5.0)]
+INFO:     192.168.78.130:39384 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM sales_detail_records_table LIMIT 10;
+db_sql_tool response:[('2025/6/1', 'A0001', '浴巾', '王一珂'), ('2025/6/14', 'A0001', '地垫', '王一珂'), ('2025/6/14', 'A0001', '衣架', '王一珂'), ('2025/6/1', 'A0001', '晾衣架', '王一珂'), ('2025/6/1', 'A0001', '收纳盒', '王一珂'), ('2025/6/1', 'A0001', '储物箱', '王一珂'), ('2025/6/5', 'A0001', '露营折叠椅', '王一珂'), ('2025/6/5', 'A0001', '露营折叠桌', '王一珂'), ('2025/6/5', 'A0001', '露营帐篷', '王一珂'), ('2025/9/5', 'A0001', '盘子', '王一珂')]
+INFO:     192.168.78.130:39394 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT MIN(purchase_date) as earliest_date, MAX(purchase_date) as latest_date FROM sales_detail_records_table;
+db_sql_tool response:[('2025/11/3', '2025/9/6')]
+INFO:     192.168.78.130:58742 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT DISTINCT purchase_date FROM sales_detail_records_table ORDER BY purchase_date DESC LIMIT 20;
+db_sql_tool response:[('2025/9/6',), ('2025/9/5',), ('2025/8/3',), ('2025/8/1',), ('2025/6/5',), ('2025/6/14',), ('2025/6/1',), ('2025/11/3',)]
+INFO:     192.168.78.130:58750 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM product_monthly_sales_statistic LIMIT 5;
+db_sql_tool response:[('抽纸', 20, 25, 40, 30, 13, 24, 17, 19, 32, 25, 35, 50), ('卷纸', 15, 18, 30, 22, 10, 20, 14, 16, 28, 20, 30, 45), ('湿巾', 12, 15, 25, 18, 8, 16, 12, 14, 24, 18, 25, 40), ('垃圾袋', 10, 12, 20, 15, 6, 14, 10, 12, 20, 15, 22, 35), ('保鲜膜', 8, 10, 15, 12, 5, 12, 8, 10, 18, 12, 20, 30)]
+INFO:     192.168.78.130:46694 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT DISTINCT product_name FROM sales_detail_records_table WHERE product_name IN (SELECT product_name FROM sports_goods_price_list);
+db_sql_tool response:[('运动相机',), ('运动补剂',), ('运动饮料',), ('露营帐篷',), ('心率带',), ('运动手表',), ('钓鱼竿',), ('鱼饵盒',), ('运动手环',), ('能量棒',), ('蛋白粉',), ('钓鱼线轮',), ('运动耳机',), ('钓鱼箱',), ('露营折叠桌',), ('露营折叠椅',), ('烧烤架',)]
+INFO:     192.168.78.130:46706 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT DISTINCT product_name FROM sales_detail_records_table WHERE product_name IN (SELECT product_name FROM food_price_list);
+db_sql_tool response:[('运动饮料',)]
+INFO:     192.168.78.130:46716 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name FROM sports_goods_price_list;
+db_sql_tool response:[('瑜伽垫',), ('跑步机',), ('健身哑铃套装',), ('运动水壶',), ('篮球',), ('足球',), ('羽毛球拍',), ('乒乓球拍套装',), ('跳绳',), ('运动护膝',), ('健身手套',), ('运动腰包',), ('运动发带',), ('运动袜',), ('跑步鞋',), ('篮球鞋',), ('足球鞋',), ('网球鞋',), ('健身服套装',), ('运动紧身衣',), ('运动短裤',), ('运动T恤',), ('运动外套',), ('健身腰带',), ('运动毛巾',), ('运动背包',), ('健身垫',), ('泡沫轴',), ('引体向上杆',), ('俯卧撑支架',), ('健腹轮',), ('壶铃',), ('杠铃杆',), ('杠铃片',), ('卧推架',), ('深蹲架',), ('健身凳',), ('弹力带套装',), ('战绳',), ('沙袋',), ('拳击手套',), ('拳击沙袋',), ('拳击绷带',), ('护齿套',), ('拳击靶',), ('网球拍',), ('网球',), ('网球包',), ('高尔夫球杆套装',), ('高尔夫球',), ('高尔夫手套',), ('高尔夫球包',), ('棒球手套',), ('棒球棒',), ('棒球',), ('排球',), ('排球护膝',), ('橄榄球',), ('橄榄球头盔',), ('橄榄球护肩',), ('滑板',), ('滑板护具套装',), ('轮滑鞋',), ('轮滑护具',), ('滑雪板',), ('滑雪杖',), ('滑雪镜',), ('滑雪手套',), ('滑雪服',), ('滑雪头盔',), ('游泳镜',), ('游泳帽',), ('游泳耳塞',), ('游泳鼻夹',), ('游泳浮板',), ('游泳脚蹼',), ('游泳划手掌',), ('泳衣',), ('泳裤',), ('潜水镜',), ('潜水呼吸管',), ('潜水脚蹼',), ('潜水服',), ('登山杖',), ('登山包',), ('登山鞋',), ('冲锋衣',), ('速干衣',), ('露营帐篷',), ('睡袋',), ('防潮垫',), ('户外头灯',), ('指南针',), ('户外水壶',), ('折叠椅',), ('折叠桌',), ('烧烤架',), ('钓鱼竿',), ('钓鱼线轮',), ('钓鱼箱',), ('鱼饵盒',), ('钓鱼椅',), ('钓鱼伞',), ('自行车',), ('自行车头盔',), ('自行车手套',), ('自行车水壶架',), ('自行车码表',), ('自行车锁',), ('自行车灯',), ('自行车维修工具',), ('动感单车',), ('椭圆机',), ('划船机',), ('登山机',), ('仰卧板',), ('引体向上辅助带',), ('手腕护具',), ('脚踝护具',), ('运动按摩枪',), ('体脂秤',), ('运动手环',), ('运动手表',), ('心率带',), ('运动耳机',), ('运动相机',), ('运动补剂',), ('蛋白粉',), ('能量棒',), ('运动饮料',), ('瑜伽砖',), ('瑜伽球',), ('瑜伽拉力带',), ('瑜伽铺巾',), ('普拉提圈',), ('平衡垫',), ('健身操踏板',), ('拳击速度球',), ('拳击梨球',), ('拳击反应球',), ('棒球打击网',), ('棒球投球机',), ('足球训练桩',), ('足球训练梯',), ('足球门网',), ('篮球架',), ('篮球网',), ('篮球训练服',), ('网球训练器',), ('网球发球机',), ('羽毛球网架',), ('羽毛球网',), ('羽毛球训练器',), ('乒乓球台',), ('乒乓球网架',), ('乒乓球发球机',), ('高尔夫练习网',), ('高尔夫推杆练习器',), ('高尔夫测距仪',), ('高尔夫球车',), ('棒球本垒板',), ('棒球垒包套装',), ('棒球裁判装备',), ('橄榄球训练服',), ('橄榄球训练锥',), ('滑板轴承',), ('滑板轮子',), ('滑板砂纸',), ('滑板工具',), ('轮滑轴承',), ('轮滑轮子',), ('滑雪板蜡',), ('滑雪板固定器',), ('滑雪板包',), ('滑雪护臀垫',), ('游泳训练浮标',), ('游泳训练划水桨',), ('游泳心率监测器',), ('潜水电脑表',), ('潜水配重带',), ('登山扣',), ('登山绳索',), ('登山安全带',), ('登山快挂',), ('露营灯',), ('露营炊具',), ('露营折叠床',), ('钓鱼抄网',), ('钓鱼浮漂',), ('钓鱼铅坠',), ('自行车驮包',), ('自行车打气筒',), ('自行车挡泥板',), ('自行车货架',), ('自行车铃铛',), ('自行车反光片',), ('动感单车垫',), ('椭圆机垫',), ('划船机垫',), ('登山机垫',), ('仰卧板垫',), ('引体向上门框杆',), ('手腕力量训练器',), ('脚踝力量训练带',), ('运动按摩滚轮',), ('体脂测量仪',), ('运动手环充电器',), ('运动手表表带',), ('心率带胸带',), ('运动耳机保护套',), ('运动相机支架',), ('运动补剂摇摇杯',), ('蛋白粉勺',), ('能量胶',), ('运动盐丸',), ('瑜伽伸展带',), ('瑜伽冥想垫',), ('瑜伽倒立架',), ('普拉提弹力绳',), ('平衡板',), ('健身操哑铃',), ('拳击沙袋架',), ('拳击擂台',), ('棒球打击手套',), ('棒球护具套装',), ('足球守门员手套',), ('足球训练背心',), ('篮球训练背心',), ('篮球护指套',), ('网球减震器',), ('网球护腕',), ('羽毛球手胶',), ('羽毛球护腕',), ('乒乓球拍胶皮',), ('乒乓球拍清洁剂',), ('高尔夫球TEE',), ('高尔夫球标记',), ('高尔夫球杆套',), ('棒球打击头盔',), ('棒球捕手护具',), ('橄榄球训练球',), ('橄榄球护齿',), ('滑板桥',), ('滑板工具套装',), ('轮滑刹车器',), ('滑雪护脸',), ('滑雪护甲',), ('游泳呼吸管咬嘴',), ('游泳鼻塞',), ('潜水配重块',), ('登山冰镐',), ('登山冰爪',), ('露营折叠椅',), ('露营折叠桌',), ('钓鱼鱼钩',), ('钓鱼鱼线',), ('自行车水壶',), ('自行车尾灯',), ('健身阻力带',), ('健身悬挂带',), ('拳击跳绳',), ('棒球打击训练器',), ('足球训练反弹网',), ('篮球投篮训练器',), ('网球发球训练器',), ('羽毛球发球机',), ('乒乓球多球训练器',), ('高尔夫挥杆分析仪',), ('棒球投球训练器',), ('橄榄球传球训练器',), ('滑板训练斜坡',), ('轮滑训练桩',), ('滑雪训练平衡板',), ('游泳训练呼吸管',), ('潜水训练浮标',), ('登山训练攀岩墙',), ('露营训练帐篷',), ('钓鱼训练浮标',), ('自行车训练滚筒',), ('健身训练沙袋背心',), ('拳击训练反应靶',), ('棒球训练击球网',), ('足球训练射门网',), ('篮球训练运球眼镜',), ('网球训练反弹板',), ('羽毛球训练发球器',), ('乒乓球训练反弹板',), ('高尔夫训练推杆垫',), ('棒球训练接球网',), ('橄榄球训练接球手套',), ('滑板训练平衡垫',), ('轮滑训练平衡板',), ('滑雪训练平衡器',), ('游泳训练划水板',), ('潜水训练浮力带',), ('登山训练攀岩鞋',), ('露营训练折叠炉',), ('钓鱼训练鱼竿架',), ('自行车训练骑行台',), ('健身训练悬挂架',), ('',)]
+INFO:     192.168.78.130:50804 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name FROM food_price_list;
+db_sql_tool response:[('奇多',), ('金华火腿',), ('薯片',), ('巧克力',), ('牛肉干',), ('矿泉水',), ('饼干',), ('方便面',), ('口香糖',), ('酸奶',), ('可乐',), ('雪碧',), ('花生',), ('瓜子',), ('奶茶',), ('面包',), ('糖果',), ('果冻',), ('鱿鱼丝',), ('猪肉脯',), ('绿茶',), ('咖啡',), ('果汁',), ('牛奶',), ('冰淇淋',), ('火腿肠',), ('蛋黄派',), ('豆腐干',), ('辣条',), ('坚果',), ('爆米花',), ('燕麦',), ('红枣',), ('葡萄干',), ('话梅',), ('山楂片',), ('威化饼',), ('蛋卷',), ('沙琪玛',), ('曲奇',), ('凤爪',), ('鸭脖',), ('鱼豆腐',), ('海苔',), ('芝士条',), ('布丁',), ('泡泡糖',), ('棒棒糖',), ('棉花糖',), ('跳跳糖',), ('薄荷糖',), ('奶片',), ('芝麻糊',), ('藕粉',), ('麦片',), ('豆浆粉',), ('核桃粉',), ('杏仁露',), ('凉茶',), ('运动饮料',), ('维生素水',), ('椰子水',), ('柠檬茶',), ('乌龙茶',), ('红茶',), ('花茶',), ('黑茶',), ('白茶',), ('普洱茶',), ('大麦茶',), ('姜茶',), ('蜂蜜',), ('蜂王浆',), ('蜂胶',), ('花粉',), ('龟苓膏',), ('凉粉',), ('果酱',), ('花生酱',), ('芝麻酱',), ('番茄酱',), ('辣椒酱',), ('豆瓣酱',), ('沙拉酱',), ('蛋黄酱',), ('奶酪',), ('黄油',), ('奶油',), ('炼乳',), ('奶粉',), ('豆奶粉',), ('藕粉',), ('玉米粉',), ('糯米粉',), ('淀粉',), ('面包糠',), ('酵母',), ('泡打粉',), ('小苏打',), ('味精',), ('鸡精',), ('盐',), ('糖',), ('冰糖',), ('红糖',), ('白糖',), ('方糖',), ('麦芽糖',), ('饴糖',), ('巧克力酱',), ('草莓酱',), ('蓝莓酱',), ('苹果酱',), ('菠萝酱',), ('芒果酱',), ('椰子酱',), ('榴莲酱',), ('香蕉片',), ('苹果干',), ('芒果干',), ('草莓干',), ('蓝莓干',), ('猕猴桃干',), ('菠萝干',), ('木瓜干',), ('红薯干',), ('芋头干',), ('南瓜子',), ('西瓜子',), ('葵花子',), ('松子',), ('榛子',), ('开心果',), ('腰果',), ('夏威夷果',), ('碧根果',), ('巴旦木',), ('核桃',), ('杏仁',), ('板栗',), ('莲子',), ('百合',), ('枸杞',), ('桂圆干',), ('荔枝干',), ('无花果干',), ('杏干',), ('桃干',), ('梨干',), ('山楂卷',), ('地瓜条',), ('芋头条',), ('玉米片',), ('锅巴',), ('虾条',), ('鱼片',), ('牛肉粒',), ('猪肉粒',), ('鸡肉丝',), ('鸭肉干',), ('鹅肝酱',), ('鱼子酱',), ('海参',), ('鲍鱼',), ('扇贝',), ('虾皮',), ('紫菜',), ('海带',), ('裙带菜',), ('香菇',), ('木耳',), ('银耳',), ('竹荪',), ('猴头菇',), ('松茸',), ('牛肝菌',), ('鸡枞菌',), ('茶树菇',), ('金针菇',), ('平菇',), ('杏鲍菇',), ('草菇',), ('滑子菇',), ('口蘑',), ('羊肚菌',), ('灵芝',), ('虫草',), ('人参',), ('西洋参',), ('三七',), ('黄芪',), ('当归',), ('枸杞子',), ('红枣',), ('桂圆',), ('莲子',), ('百合',), ('银耳',), ('黑芝麻',), ('白芝麻',), ('花生',), ('核桃',), ('杏仁',), ('腰果',), ('开心果',), ('松子',), ('榛子',), ('夏威夷果',), ('碧根果',), ('巴旦木',), ('南瓜子',), ('西瓜子',), ('葵花子',), ('葡萄干',), ('蔓越莓干',), ('蓝莓干',), ('草莓干',), ('芒果干',), ('菠萝干',), ('香蕉片',), ('苹果干',), ('猕猴桃干',), ('木瓜干',), ('红薯干',), ('芋头干',), ('地瓜条',), ('芋头条',), ('玉米片',), ('锅巴',), ('虾条',), ('鱼片',), ('牛肉粒',), ('猪肉粒',), ('鸡肉丝',), ('鸭肉干',), ('鹅肝酱',), ('鱼子酱',), ('海参',), ('鲍鱼',), ('扇贝',), ('虾皮',), ('紫菜',), ('海带',), ('裙带菜',), ('香菇',), ('木耳',), ('银耳',), ('竹荪',), ('猴头菇',), ('松茸',), ('牛肝菌',), ('鸡枞菌',), ('茶树菇',), ('金针菇',), ('平菇',), ('杏鲍菇',), ('草菇',), ('滑子菇',), ('口蘑',), ('羊肚菌',), ('灵芝',), ('虫草',), ('人参',), ('西洋参',), ('三七',), ('黄芪',), ('当归',), ('枸杞子',), ('红枣',), ('桂圆',), ('莲子',), ('百合',), ('银耳',), ('黑芝麻',), ('白芝麻',), ('花生',), ('核桃',), ('杏仁',), ('腰果',), ('开心果',), ('松子',), ('榛子',), ('夏威夷果',), ('碧根果',), ('巴旦木',), ('南瓜子',), ('西瓜子',), ('葵花子',), ('葡萄干',), ('蔓越莓干',), ('蓝莓干',), ('草莓干',), ('芒果干',), ('菠萝干',), ('香蕉片',), ('苹果干',), ('猕猴桃干',), ('木瓜干',), ('红薯干',), ('芋头干',), ('',)]
+INFO:     192.168.78.130:50812 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT * FROM product_reviews LIMIT 10;
+db_sql_tool response:[('2025/6/1', '这款蓝莓干果肉饱满，没有添加太多糖，很健康！', 5, '蓝莓干'), ('2025/6/3', '蓝莓干没有防腐剂的味道，天然果香，很喜欢！', 5, '蓝莓干'), ('2025/6/5', '蓝莓干酸甜适中，孩子特别爱吃，已经回购好几次了！', 5, '蓝莓干'), ('2025/6/1', '复购的批次质量差，再也不买了！', 1, ''), ('2025/6/1', '搭配燕麦酸奶绝配，早餐营养又美味！', 5, ''), ('2025/6/10', '蓝莓干硬得像石头，牙口不好的人根本咬不动！', 3, '蓝莓干'), ('2025/6/11', '每天吃一小把蓝莓干，感觉对眼睛疲劳有帮助！', 5, '蓝莓干'), ('2025/6/1', '价格比超市贵一倍，品质却差很多，纯纯的智商税！', 3, ''), ('2025/6/1', '保质期只剩1个月，商家明显在清库存！', 3, ''), ('2025/6/14', '蓝莓干太硬，嚼得牙疼，不喜欢！', 3, '蓝莓干')]
+INFO:     192.168.78.130:52324 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  SUBSTRING(purchase_date, 1, 7) as month,
+  COUNT(*) as sales_count
+FROM sales_detail_records_table 
+WHERE purchase_date LIKE '2025/%'
+GROUP BY SUBSTRING(purchase_date, 1, 7)
+ORDER BY month;
+db_sql_tool response:[('2025/11', 9), ('2025/6/', 10), ('2025/8/', 5), ('2025/9/', 8)]
+INFO:     192.168.78.130:52330 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT 
+  product_name,
+  COUNT(*) as sales_count,
+  MIN(purchase_date) as first_sale,
+  MAX(purchase_date) as last_sale
+FROM sales_detail_records_table 
+GROUP BY product_name
+HAVING COUNT(*) > 1
+ORDER BY sales_count DESC
+LIMIT 20;
+db_sql_tool response:错误: 查询失败。请修改查询语句后重试。
+INFO:     192.168.78.130:60078 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+db_sql_tool input query:SELECT product_name, COUNT(*) as sales_count FROM sales_detail_records_table GROUP BY product_name ORDER BY sales_count DESC LIMIT 20;
+db_sql_tool response:[('运动相机', 1), ('运动补剂', 1), ('叉子', 1), ('运动饮料', 1), ('露营帐篷', 1), ('收纳盒', 1), ('汤勺', 1), ('心率带', 1), ('衣架', 1), ('运动手表', 1), ('钓鱼竿', 1), ('鱼饵盒', 1), ('运动手环', 1), ('晾衣架', 1), ('锅铲', 1), ('能量棒', 1), ('浴巾', 1), ('盘子', 1), ('储物箱', 1), ('拖鞋', 1)]
