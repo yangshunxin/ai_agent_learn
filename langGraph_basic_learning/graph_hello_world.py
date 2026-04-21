@@ -13,14 +13,49 @@ import asyncio
 #加载.env文件中的环境变量
 load_dotenv()
 #定义大模型调用函数，用于处理文本类模型生成功能
-async def LLM_replay(messages):
+import os
+from openai import OpenAI
+from dashscope import Generation
+import dashscope
+dashscope.base_http_api_url = 'https://dashscope.aliyuncs.com/api/v1'
+
+
+def LLM_replay(messages):
+    response = Generation.call(
+        # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key = "sk-xxx",
+        api_key=os.getenv("DASHSCOPE_API_KEY"),
+        model="qwen3-max",
+        messages=[{"role":"user","content":messages}],
+        result_format="message",
+        # 开启深度思考
+        enable_thinking=False,
+        temperature = 0
+    )
+
+    if response.status_code == 200:
+        # # 打印思考过程
+        # print("=" * 20 + "思考过程" + "=" * 20)
+        # print(response.output.choices[0].message.reasoning_content)
+        
+        # # 打印回复
+        # print("=" * 20 + "完整回复" + "=" * 20)
+        # print(response.output.choices[0].message.content)
+        return response.output.choices[0].message.content
+    else:
+        # print(f"HTTP返回码：{response.status_code}")
+        # print(f"错误码：{response.code}")
+        # print(f"错误信息：{response.message}")
+        return "call llm error"
+
+async def LLM_replay_old(messages):
     """
     prompt_template:大模型调用的提示词模板
     message:大模型调用的用户输入
     """
-    llm_client =AsyncOpenAI(api_key=os.getenv("QWEN_API_KEY"), base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
-    result =await llm_client.chat.completions.create(
-        model="qwen-plus", #推荐使用:qwen-plus-latest qwen-plus qwen-max-0125 qwen-plus-latest -0125
+    llm_client = AsyncOpenAI(api_key=os.getenv("QWEN_API_KEY"), base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    result = await llm_client.chat.completions.create(
+        # 最新 qwen3-max
+        model="qwen3-max", #推荐使用:qwen-plus-latest qwen-plus qwen-max-0125 qwen-plus-latest -0125
         messages=[{"role":"user","content":messages}],
         max_tokens=8192,
         temperature=0)
@@ -66,7 +101,7 @@ def hello_world():
 
     graph_png = app.get_graph().draw_mermaid_png()
     img = mpimg.imread(BytesIO(graph_png), format='PNG')
-    png_path = './langGraph_basic_learning/output/graph_hello_world.png'
+    png_path = './langGraph_basic_learning/output/graph_workflow.png'
     plt.imsave(png_path, img)
 
 def branch():
@@ -277,7 +312,7 @@ def agent_flow():
         ]
         
 
-        response = await LLM_replay(messages)
+        response = LLM_replay(messages)
         return {"analysis": response.content}
 
     def make_agent_decision(state: AgentModerationState) -> dict:
@@ -303,7 +338,7 @@ def agent_flow():
             HumanMessage(content=f"原内容：{content}\n\n分析结果：{analysis}")
         ]
 
-        response = model.invoke(messages)
+        response = LLM_replay(messages)
 
         # 简化处理：直接解析响应（实际应用中应该用 JSON mode）
         import json
@@ -365,6 +400,11 @@ def agent_flow():
     agent_graph.add_edge("human_review", END)
 
     agent_app = agent_graph.compile()
+    # save 
+    graph_png = agent_app.get_graph().draw_mermaid_png()
+    img = mpimg.imread(BytesIO(graph_png), format='PNG')
+    png_path = './langGraph_basic_learning/output/graph_llm_flow.png'
+    plt.imsave(png_path, img)
 
     test_contents = [
         "这是一条正常的评论。",
@@ -386,6 +426,7 @@ def agent_flow():
 if __name__=="__main__":
     # hello_world()    
     # branch()
-    work_flow()
+    # work_flow()
+    agent_flow()
 
 

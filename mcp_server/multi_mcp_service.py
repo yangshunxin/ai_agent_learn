@@ -1,4 +1,3 @@
-#%%
 """
 一个 MCP client实现多个 MCP server连接+调用实战
 pip install openai
@@ -16,11 +15,18 @@ import asyncio
 from mcp import ClientSession
 import sys
 import os
+import uvicorn
+from fastapi import FastAPI
+from pydantic import BaseModel
+import time
 from pathlib import Path
 # 加载环境变量
 load_dotenv()
-#加载MCP服务器的地址：121.34.54.32
+app = FastAPI(title="AI for BI agent")
+
+#加载MCP服务器的地址
 server_url=os.getenv("server_url")
+
 
 #通用MCP连接管理类
 class MCPClient:
@@ -36,7 +42,7 @@ class MCPClient:
         self.sessions = {}  # 存储多个服务端会话
         self.tools_map = {}  # 工具映射：工具名称 -> (服务端 ID, 端点URL)
 
-    async def connect_to_server(self, server_id: str, endpoint_url: str,protocal_type:str):
+    def connect_to_server(self, server_id: str, endpoint_url: str,protocal_type:str):
         """
         连接到 MCP SSE/steamble HTTP/stdio 服务器
         :param server_id: 服务端标识符
@@ -46,20 +52,20 @@ class MCPClient:
             raise ValueError(f"服务端 {server_id} 已经连接")
         # 连接到sse服务器或者streamable-http服务器(这里不考虑stdio类型的服务器)
         if protocal_type=="sse":
-            model_transport = await self.exit_stack.enter_async_context(
+            model_transport = self.exit_stack.enter_async_context(
                 sse_client(endpoint_url, timeout=10000, sse_read_timeout=10000)) #,sse_read_timeout=100,timeout=120
             print("stream_transport:", model_transport)
             read_stream, write_stream = model_transport  # , _ 注意sse返回只有read_steam和write_stream
             # 创建会话
         else: #如果protocal_type==streamable-http
-            model_transport=await self.exit_stack.enter_async_context(
+            model_transport= self.exit_stack.enter_async_context(
                 streamablehttp_client(endpoint_url,timeout=10000,sse_read_timeout=10000)
             )
             read_stream, write_stream, transport = model_transport
 
-        session = await self.exit_stack.enter_async_context(
+        session = self.exit_stack.enter_async_context(
             ClientSession(read_stream, write_stream))
-        await session.initialize()
+        session.initialize()
         self.sessions[server_id] = {
             "session": session,
             "read_stream": read_stream,
@@ -70,11 +76,12 @@ class MCPClient:
         print(f"已连接到 MCP {protocal_type} 服务器: {server_id}")
         print("self.sessions:",self.sessions)
         # 更新工具映射
-        response = await session.list_tools()
+        response = session.list_tools()
         print("response:",response)
         for tool in response.tools:
             self.tools_map[tool.name] = (server_id, endpoint_url)
-    async def list_tools(self):
+    
+    def list_tools(self):
         """列出所有服务端的工具"""
         if not self.sessions:
             print("没有已连接的服务端")
@@ -82,7 +89,8 @@ class MCPClient:
         print("已连接的服务端工具列表:")
         for tool_name, (server_id, _) in self.tools_map.items():
             print(f"工具: {tool_name}, 来源服务端: {server_id}")
-    async def process_query(self, messages: list) -> str:
+    
+    def process_query(self, messages: list) -> str:
         """
         处理用户查询，支持多次工具调用
         :param messages: 消息历史列表
@@ -94,7 +102,7 @@ class MCPClient:
         available_tools = []
         for tool_name, (server_id, _) in self.tools_map.items():
             session = self.sessions[server_id]["session"]
-            response = await session.list_tools()
+            response = session.list_tools()
             for tool in response.tools:
                 if tool.name == tool_name:
                     # 确保函数名符合规范（替换连字符为下划线）
@@ -113,7 +121,7 @@ class MCPClient:
         # 循环处理工具调用
         while True:
             # 请求模型处理
-            response = await self.client.chat.completions.create(
+            response = self.client.chat.completions.create(
                 model=self.model,
                 messages=conversation_history, #取历史8轮消息以免上下文过长
                 tools=available_tools,
@@ -148,7 +156,7 @@ class MCPClient:
                     server_id, _ = server_info
                     session = self.sessions[server_id]["session"]
                     print(f"\n调用工具 {original_tool_name} (服务端: {server_id}) 参数: {tool_args}\n")
-                    tool_result = await session.call_tool(original_tool_name, tool_args)
+                    tool_result = session.call_tool(original_tool_name, tool_args)
                     print("tool_result:", tool_result)
                     # 将工具调用结果添加到对话历史中（符合 OpenAI 格式）
                     conversation_history.append({
@@ -163,7 +171,15 @@ class MCPClient:
                 # 如果没有工具调用，返回最终响应
                 return response.choices[0].message.content
 
-    async def chat_loop(self):
+    def chat_api(self, user_message: str, history=[]):
+        """
+        这是你自己的 Agent！
+        输入：用户消息 + 历史
+        输出：返回回答字符串
+        """
+        return self.process_query(history + {"role": "user", "content": user_message})
+        
+    def chat_loop(self):
         """运行交互式聊天循环"""
         print("multi MCP客户端已启动！输入 'exit' 退出")
         while True:
@@ -171,51 +187,85 @@ class MCPClient:
                 query = input("问: ").strip()
                 if query.lower() == 'exit':
                     break
-                response = await self.process_query([{"role": "user", "content": query}])
+                response = self.process_query([{"role": "user", "content": query}])
                 print(f"AI回复: {response}")
             except Exception as e:
                 print(f"发生错误: {str(e)}")
                 print(e.with_traceback)
-    async def clean(self):
+    
+    def clean(self):
         """清理所有资源"""
-        await self.exit_stack.aclose()
+        self.exit_stack.aclose()
         self.sessions.clear()
         self.tools_map.clear()
 
+
+mcp_client = MCPClient()
+
 #定义工具名和工具函数之间的对应关系
-async def main():
+def main():
     # 启动并初始化 MCP 客户端
-    client = MCPClient()
-    print(server_url)
     try:
         # 连接多个 MCP Streamable HTTP 服务器
         #连接数据库数据分析MCP服务器
-        await client.connect_to_server(
+        mcp_client.connect_to_server(
             "search_db_mcp",
             f"http://{server_url}:9004/mcp",  #SSE协议的固定路由 9004是注释版
             "streamable-http"
         )
-        # #连接Python代码执行图形数据分析MCP服务器
-        await client.connect_to_server(
+        # 连接Python代码执行图形数据分析MCP服务器
+        mcp_client.connect_to_server(
             "python_chart_mcp",
             f"http://{server_url}:9002/mcp",  #STREAMBALE HTTP协议的固定路由
             "streamable-http"
         )
         #连接机器学习数据分析MCP服务器
-        await client.connect_to_server(
+        mcp_client.connect_to_server(
             "machine_learning_mcp",
             f"http://{server_url}:9003/mcp",  #STREAMBALE HTTP协议的固定路由
             "streamable-http"
         )
         # 列出可用工具
-        await client.list_tools()
+        mcp_client.list_tools()
         # 运行交互式聊天循环
-        await client.chat_loop()
+        # mcp_client.chat_loop()
     finally:
         # 清理资源
-        await client.clean()
+        mcp_client.clean()
+
+
+
+# 2. 请求格式定义
+class ChatRequest(BaseModel):
+    message: str          # 用户输入
+    history: list = None # 对话历史（可选）
+
+# 3. ---------------------- 你的 Agent 代码放这里 ----------------------
+
+
+# 4. API 接口（WebUI 调用这个）
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    # 调用你的 Agent
+    reply = mcp_client.chat_api(request.message, request.history)
+    return {"answer": reply}
+
+# 如果你想让 任何 WebUI 都能无缝接入，可以封装成 OpenAI 兼容格式：
+@app.post("/v1/chat/completions")
+async def openai_compatible(request: dict):
+    # user_msg = request["messages"][-1]["content"]
+    # 输入所有的结果到 模型中，模型就有记忆了 
+    reply = mcp_client.chat_api( request["messages"])
+    # 返回的是 最新的结果
+    return {
+        "choices": [{"message": {"role": "assistant", "content": reply}}]
+    }
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    # init service
+
+    main()
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
     # for test
 
