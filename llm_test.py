@@ -15,17 +15,19 @@ def LLM_replay(message):
     response = Generation.call(
         # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key = "sk-xxx",
         api_key=os.getenv("QWEN_API_KEY"),
-        model="qwen3-max",
+        model="qwen-turbo", # qwen3-max
         messages=[{"role": "user", "content": message}],
         result_format="message",
         # 开启深度思考
-        enable_thinking=True,
+        enable_thinking=False,
+        stream=False
     )
 
     if response.status_code == 200:
         # 打印思考过程
-        print("=" * 20 + "思考过程" + "=" * 20)
-        print(response.output.choices[0].message.reasoning_content)
+        if "reasoning_content" in response.output.choices[0].message:
+            print("=" * 20 + "思考过程" + "=" * 20)
+            print(response.output.choices[0].message.reasoning_content)
         
         # 打印回复
         print("=" * 20 + "完整回复" + "=" * 20)
@@ -45,7 +47,7 @@ def LLM_OpenAI(message):
         model="qwen3-max",
         input=[{"role": "user", "content": message}],
         extra_body={
-            "enable_thinking": True  # 启用思考模式
+            "enable_thinking": False  # 启用思考模式
         }
     )
 
@@ -63,5 +65,6 @@ def LLM_OpenAI(message):
             print(item.content[0].text)
 
 if __name__=="__main__":
-    # LLM_replay("你是谁？")
+    LLM_replay("你是谁？")
+    print("==="*20)
     LLM_OpenAI("你是谁？")

@@ -48,9 +48,14 @@ def prepare_output_data(variables, env):
     return result
 
 # 配置图片存储目录（可根据需要修改）
-image_dir=os.getenv("IMAGE_DIR")
+image_dir = os.getenv("IMAGE_DIR")
 IMAGE_STORAGE_DIR = Path(image_dir) #设置输出图片的路径
 IMAGE_STORAGE_DIR.mkdir(exist_ok=True)  # 确保目录存在
+
+server_url = os.getenv("server_url")
+server_port = os.getenv("server_port")
+image_prefix = "http://{}:{}/images/".format(server_url, server_port)
+
 #运行python代码的mcp tool
 #这里我们假设只会有一张图,多张图的话自己改造一下代码即可，通过一个image_list搜集所有生成的图像,然后交给前端分别做渲染呈现
 """
@@ -74,6 +79,7 @@ async def run_python_script_tool(script_content: str):
         'plt': plt,
         '__name__': '__main__'
     })
+    
     try:
         # 阶段一：表达式求值尝试
         try:
@@ -144,8 +150,10 @@ def save_matplotlib_figures():
         image_path = IMAGE_STORAGE_DIR / image_name
         # 保存图片
         fig.savefig(image_path, format='png', bbox_inches='tight')
-        image_path=str(image_path.absolute()) #上传OSS拿到image url
-    return image_path #image_url
+        image_path = str(image_path.absolute()) #上传OSS拿到image url
+        image_url = image_prefix + image_name
+    # return f"![生成的图表]({image_url})"
+    return image_url
 
 def prepare_output_data(variables, env):
     """准备可序列化的输出数据"""
@@ -180,16 +188,28 @@ async def translate_to_python_plot_script(graph_demand:str, data_desc:str) -> st
     :return:一段可以执行的python绘图代码
     """
     prompt=f"""你是一个python绘图代码生成大师,你善于根据当前用户提供的数据，依据用户的绘图需求生成可执行的python绘图代码，必须通过matplotlib库实现。
-    注意：(1)若没有提供合适的数据完成绘图代码生成，请返回:我无法生成绘图代码 (2) 请勿生成需求要求外的代码，请勿生成非绘图代码。(3) 你的任务仅仅是生成可执行python代码，请勿做任何分析或解释。
+    注意：
+    (1) 若没有提供合适的数据完成绘图代码生成，请返回:我无法生成绘图代码
+    (2) 请勿生成需求要求外的代码，请勿生成非绘图代码。
+    (3) 你的任务仅仅是生成可执行python代码，请勿做任何分析或解释。
+    (4) 代码开头必须固定加入这三行（解决Ubuntu服务器中文乱码）：
+    import matplotlib.pyplot as plt
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+    plt.rcParams['axes.unicode_minus'] = False
+    (5) 不要使用 plt.show()，代码只画图、不显示。
+
     举例1:
     输入:
     用户需求:请根据销量数据生成一张销量折线图
     数据:12个月的销量数据[30,50,70,50,80,55,30,50,70,50,80,55]
-    输出:import matplotlib.pyplot as plt
+    输出:
+import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+plt.rcParams['axes.unicode_minus'] = False
 import numpy as np
 sales_data = [30, 50, 70, 50, 80, 55, 30, 50, 70, 50, 80, 55]
 months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-plt.figure(figsize=(10, 6))  # 设置图表大小
+plt.figure(figsize=(10, 6))
 plt.plot(months, sales_data, marker='o', color='#4CAF50', linewidth=2, markersize=8)
 plt.title('2023年每月销量趋势', fontsize=16, pad=20)
 plt.xlabel('月份', fontsize=12)
@@ -199,18 +219,19 @@ for x, y in zip(months, sales_data):
     plt.text(x, y+2, str(y), ha='center', va='bottom', fontsize=10)
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.tight_layout()
-plt.show() 
+
     举例2:
     输入:
     用户需求:请根据订单数据绘制一张每个产品的销售分布饼图
     数据:需要查询订单表的数据
     输出:我无法生成绘图代码
-    
-    
+
+
     输入:
     用户需求:{graph_demand}
     数据:{data_desc}
     输出:"""
+
     print("translate_to_python_plot_script input graph_demand:{} data_desc:{}".format(graph_demand, data_desc), flush=True)
     code_result=await LLM_replay(messages=prompt)
     out = None
@@ -221,6 +242,8 @@ plt.show()
     out = code_result.strip()
     print("translate_to_python_plot_script output:{}".format(out))
     return out
+
+
 
 def test_run_python_script_tool():
     print("================(1) 绘制图形返回值测试===================")

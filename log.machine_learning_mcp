@@ -1,1246 +1,436 @@
 nohup: ignoring input
-INFO:     Started server process [253666]
+INFO:     Started server process [139294]
 INFO:     Waiting for application startup.
 StreamableHTTP session manager started
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:9003 (Press CTRL+C to quit)
-Created new transport with session ID: 6ec17fe9df6e433eaf16f85e7f4757fa
-INFO:     192.168.78.130:54116 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43600 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:43606 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43622 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: bfbde5d5bb1d425f978195c027152f22
+INFO:     192.168.78.130:41790 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41804 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:41814 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41816 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52360 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41826 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52364 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43774 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52366 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:46426 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:银耳 sales_data_list:[25, 30, 45, 50, 55, 70, 75, 90, 50, 35, 30, 45]
+ema: 0     25.000000
+1     27.500000
+2     36.250000
+3     43.125000
+4     49.062500
+5     59.531250
+6     67.265625
+7     78.632812
+8     64.316406
+9     49.658203
+10    39.829102
+11    42.414551
+dtype: float64
+销量预测结果forecast: 42.41455078125
+sales_predict_tool output:商品银耳历史销量数据为:[25, 30, 45, 50, 55, 70, 75, 90, 50, 35, 30, 45],经过指数平滑移动平均预测下一个月的销量为:42.41455078125
+INFO:     192.168.78.130:59376 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33178 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59362 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33180 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59370 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33186 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52316 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:银耳 sales_data_list:[25, 30, 45, 50, 55, 70, 75, 90, 50, 35, 30, 45]
+ema: 0     25.000000
+1     27.500000
+2     36.250000
+3     43.125000
+4     49.062500
+5     59.531250
+6     67.265625
+7     78.632812
+8     64.316406
+9     49.658203
+10    39.829102
+11    42.414551
+dtype: float64
+销量预测结果forecast: 42.41455078125
+sales_predict_tool output:商品银耳历史销量数据为:[25, 30, 45, 50, 55, 70, 75, 90, 50, 35, 30, 45],经过指数平滑移动平均预测下一个月的销量为:42.41455078125
+INFO:     192.168.78.130:38716 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: e272023a7399460f92f23f0c22f9fa60
-INFO:     192.168.78.130:41044 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41058 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:41072 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41080 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44186 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34104 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56130 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34120 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:56138 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34128 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: fc9109559fe84f3db095e720fbd8ff5e
+INFO:     192.168.78.130:39774 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:39776 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:39780 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:39784 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: 5acfda5a02b1400f878c5d970dd6a104
-INFO:     192.168.78.130:58976 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58992 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:58996 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:59012 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:39800 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48412 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43868 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48424 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59806 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48436 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 739ead1db99643499008b9b2c561e653
+INFO:     192.168.78.130:46016 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:46022 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:46032 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:46042 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: e29f1812712c476fb36a089bc0847a22
-INFO:     192.168.78.130:32930 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:32936 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:32938 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:32952 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:46048 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
+Created new transport with session ID: 4b7e9220136244b1b3a3d5b461f868b1
+INFO:     192.168.78.130:52284 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52294 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:52306 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52316 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:52318 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:53370 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:51360 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: be5d1280da4e40dfa8d7b6128b89ca8e
+INFO:     192.168.78.130:53084 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:53098 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:53108 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:53124 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:53128 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36692 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:40846 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:46818 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:49344 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:47558 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:54824 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: fcaae4d1450e41748474dcd689b61bbe
+INFO:     192.168.78.130:58928 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58936 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:58946 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:58952 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:58962 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:54278 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:60948 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 303404afa7c740eaa5333887378cc395
+INFO:     192.168.78.130:38558 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:38562 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:38570 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:38572 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:38580 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:33930 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:33936 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:洗碗布 sales_data_list:[5, 6, 10, 8, 3, 8, 5, 6, 12, 8, 15, 20]
+ema: 0      5.000000
+1      5.500000
+2      7.750000
+3      7.875000
+4      5.437500
+5      6.718750
+6      5.859375
+7      5.929688
+8      8.964844
+9      8.482422
+10    11.741211
+11    15.870605
+dtype: float64
+销量预测结果forecast: 15.87060546875
+sales_predict_tool output:商品洗碗布历史销量数据为:[5, 6, 10, 8, 3, 8, 5, 6, 12, 8, 15, 20],经过指数平滑移动平均预测下一个月的销量为:15.87060546875
+INFO:     192.168.78.130:37830 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 77636fa1e99f4450bd2c745c3e41c108
+INFO:     192.168.78.130:55954 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55958 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:55970 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55980 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:55988 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:55446 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:59042 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 2feca76d3ecc48d287b6f91cf3b2c18b
+INFO:     192.168.78.130:32774 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:32782 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:32784 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:32786 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:32798 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:32860 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:54776 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 7215ea739a1f4d6ebdf7fa1f4e01ec6f
+INFO:     192.168.78.130:45308 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45310 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:45318 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45330 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:45346 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:43404 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:50596 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 90c7e4b368b64025b07eaa8ed6488213
+INFO:     192.168.78.130:48278 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:48292 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:48304 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:48320 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:48322 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 44ab0a24d6bb4335abbc3675a8486f70
+INFO:     192.168.78.130:47130 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47132 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:47148 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47154 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:47158 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36260 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36338 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:银耳 sales_data_list:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12]
+ema: 0     3.000000
+1     3.500000
+2     4.750000
+3     4.875000
+4     2.937500
+5     3.968750
+6     3.484375
+7     3.742188
+8     5.871094
+9     5.435547
+10    7.717773
+11    9.858887
+dtype: float64
+销量预测结果forecast: 9.85888671875
+sales_predict_tool output:商品银耳历史销量数据为:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12],经过指数平滑移动平均预测下一个月的销量为:9.85888671875
+INFO:     192.168.78.130:36196 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: a32ba3320f8d42fdac9954a46a7d2d8d
+INFO:     192.168.78.130:37250 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:37266 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:37282 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:37286 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:37302 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:60734 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:59256 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:银耳 sales_data_list:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12]
+ema: 0     3.000000
+1     3.500000
+2     4.750000
+3     4.875000
+4     2.937500
+5     3.968750
+6     3.484375
+7     3.742188
+8     5.871094
+9     5.435547
+10    7.717773
+11    9.858887
+dtype: float64
+销量预测结果forecast: 9.85888671875
+sales_predict_tool output:商品银耳历史销量数据为:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12],经过指数平滑移动平均预测下一个月的销量为:9.85888671875
+INFO:     192.168.78.130:48136 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+sales_predict_tool input ItemName:银耳 sales_data_list:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12, 9.86]
+ema: 0     3.000000
+1     3.500000
+2     4.750000
+3     4.875000
+4     2.937500
+5     3.968750
+6     3.484375
+7     3.742188
+8     5.871094
+9     5.435547
+10    7.717773
+11    9.858887
+12    9.859131
+dtype: float64
+销量预测结果forecast: 9.859130859375
+sales_predict_tool output:商品银耳历史销量数据为:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12, 9.86],经过指数平滑移动平均预测下一个月的销量为:9.859130859375
 INFO:     192.168.78.130:49956 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49958 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 0504e5192ea344d5a51f0b69d005222a
+INFO:     192.168.78.130:33732 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:33744 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:33752 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:33766 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49962 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:33780 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: 09c98e1494404b7295b1544f8520e8b5
-INFO:     192.168.78.130:54138 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54144 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:54152 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54164 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43832 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52110 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:59394 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52114 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 259e960a5a9d41b0800bbbc903fe60e4
+INFO:     192.168.78.130:53198 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:53204 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:53216 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:53220 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52118 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:53236 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57480 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44526 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57490 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:55222 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57498 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:39484 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: 897597195603409fb262987e8ae7a4d4
-INFO:     192.168.78.130:52680 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52684 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:52696 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52708 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:52810 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52740 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: cc7313f129cd4d8e9f0d9cf0c296e801
+INFO:     192.168.78.130:42512 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42520 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:42526 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42530 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52744 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42540 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52748 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:45142 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50026 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50042 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50056 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48076 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48086 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48096 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: d456e0e441414e4ba580a7b60d51361f
-INFO:     192.168.78.130:55732 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55734 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:55742 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55754 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49260 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49262 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49266 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33668 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33678 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33680 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 7ea10dfe1e4c4a058b9967d0d2a72e73
-INFO:     192.168.78.130:39126 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:39136 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:39148 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:39156 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52512 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52522 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52536 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: bcfc99b20066448f931a98f69eba4632
-INFO:     192.168.78.130:60548 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:60564 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:60572 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:60576 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39162 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39176 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39188 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49000 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49016 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49022 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37868 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37870 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37882 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: bf03ab695a124e2b873874d4e298dbd3
-INFO:     192.168.78.130:41314 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41330 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:41344 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41356 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47792 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47798 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47804 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 11c14eadf72544958d85d650a5395ed2
-INFO:     192.168.78.130:53290 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53306 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53316 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53330 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37170 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37184 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:37188 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 265b582645804754b03a8b1f705bbd61
-INFO:     192.168.78.130:34052 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34062 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:34074 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34090 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:59900 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:59914 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:59918 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 8b28f7fc379b407fb9844132daa38fb4
-INFO:     192.168.78.130:52096 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52104 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:52120 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52134 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50474 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50476 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:50488 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 3dba435463174040980a67e3bdcf427b
-INFO:     192.168.78.130:58472 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58476 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:58488 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58498 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58852 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58864 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58876 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38430 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38446 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38458 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 80a13e88992c4ce4ab60e66f9b8953f9
-INFO:     192.168.78.130:53626 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53628 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53640 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53650 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39348 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39350 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39364 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54382 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54384 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54396 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57804 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57806 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:57812 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38470 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38472 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38486 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60568 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60584 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60596 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 5ce7dca0587943a1b7315b04077fc418
-INFO:     192.168.78.130:50926 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:50934 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:50944 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:50952 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49542 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49546 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49556 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: fe0a9818b5734a869aa4082c3e50abc2
-INFO:     192.168.78.130:55658 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55666 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:55676 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55690 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:36104 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:36112 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:36116 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42040 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42048 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42054 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49506 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49512 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49522 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55810 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55818 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55820 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35926 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35938 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35954 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34214 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34224 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:34232 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46372 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46380 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46386 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33012 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33022 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:33026 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49064 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49068 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49074 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46980 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46988 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46998 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53152 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53160 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53172 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39474 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39488 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39498 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49966 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49982 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49984 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44180 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44194 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44208 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44210 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44216 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44224 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48226 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48240 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48252 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49230 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49240 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49248 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 95eb0716a9864d3dab6c1de380741154
-INFO:     192.168.78.130:60464 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:60470 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:60484 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:60486 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60490 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60498 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60512 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52828 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52836 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:52840 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58000 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36764 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type CallToolRequest
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-reviews_list: ['银耳无硫熏，孕妇吃着放心！', '银耳颜色发黄，怀疑硫磺熏过！', '银耳宣传“有机”实际无认证，虚假宣传！', '这款银耳泡发率超高，一小朵就能煮一大锅胶质满满的银耳羹！', '煮银耳时加点桂花，香气扑鼻，幸福感爆棚！', '银耳煮完胶质满满，感觉皮肤变好了！', '复购的银耳品质下降，不再买了！', '比超市买的银耳更干净，几乎无杂质，洗一遍就能煮！', '银耳包装密封性好，干燥无杂质，推荐！', '泡发率高的银耳，一小朵能煮一大锅！', '银耳价格虚高，比菜市场贵一倍！', '银耳碎渣少，朵形完整，一看就是精选好货！', '这款银耳质量稳定，每次炖甜品都满意！', '煮完银耳汤黏稠度刚好，口感细腻，喜欢！', '银耳价格实惠，学生党也能天天吃！', '这次银耳有霉味，不敢吃，差评！', '物流慢，银耳到货时包装全破了！', '银耳炖牛奶超好喝，比奶茶健康多了，孩子也喜欢！', '回购N次的银耳，品质稳定，出胶快，性价比之王！', '银耳炖桃胶、皂角米绝配，养颜圣品，女生必囤！', '客服态度超好，银耳问题解答超耐心，购物体验满分！', '包装漏气，银耳受潮结块了！', '银耳分量缩水，和描述不符！', '即食银耳超方便，早上加热2分钟就能喝，营养又省时！', '银耳无硫熏，颜色自然，孕妇和宝宝都能放心吃！', '卖家送的银耳食谱超实用，解锁了超多新吃法！', '包装密封性超好，银耳干燥不返潮，储存方便！', '银耳羹美容养颜，觉得很有营养！', '银耳搭配红枣枸杞绝了，营养又美味！', '银耳品质好，比线下店新鲜，会长期买！', '银耳碎渣太多，泡发后全是小颗粒！', '煮完银耳汤发酸，质量有问题！', '银耳杂质多，洗了三遍还有沙子！', '客服态度差，银耳问题不解决！', '银耳胶质丰富，长期吃感觉皮肤更水润了！', '银耳煮后胶质浓稠，冷藏后像果冻一样，超赞！', '复购多次的银耳，出胶快，性价比超高！', '即食银耳方便快捷，早餐必备！', '银耳煮一小时都不出胶，垃圾食品！', '银耳炖不烂，口感像树皮！', '银耳搭配红枣、枸杞炖煮，香甜滋补，秋冬必备！', '银耳低卡又饱腹，减肥期当代餐超合适！', '银耳泡发后煮粥特别软糯，全家都爱喝！', '银耳分量足，价格比超市便宜，会继续买！', '银耳炖桃胶口感顺滑，愿意复购！', '即食银耳太甜，香精味重，不喜欢！', '银耳口感细腻软糯，炖汤后入口即化，全家人都超爱！', '独立小包装银耳，干净卫生，一次一包刚刚好！', '银耳搭配雪梨炖煮，润肺止咳，换季必备！']
-stars_list: <class 'list'>
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏，孕妇吃着放心]
-result: [商品名称:银耳|是否满意:不满意|原因:颜色发黄，怀疑硫磺熏过]
-result: [商品名称:银耳|是否满意:不满意|原因:宣传“有机”但实际无认证，涉嫌虚假宣传]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率超高，一小朵能煮一大锅胶质满满的银耳羹]
-result: [商品名称:桂花|是否满意:满意|原因:煮银耳时加点桂花，香气扑鼻，幸福感爆棚]
-result: [商品名称:银耳|是否满意:满意|原因:煮完胶质满满，感觉皮肤变好了]
-result: [商品名称:银耳|是否满意:不满意|原因:品质下降]
-result: [商品名称:银耳|是否满意:满意|原因:比超市买的更干净，几乎无杂质，洗一遍就能煮]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性好，干燥无杂质，推荐]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率高，一小朵能煮一大锅]
-result: [商品名称:银耳|是否满意:不满意|原因:价格虚高，比菜市场贵一倍]
-result: [商品名称:银耳|是否满意:满意|原因:碎渣少，朵形完整，是精选好货]
-result: [商品名称:银耳|是否满意:满意|原因:质量稳定，每次炖甜品都满意]
-result: [商品名称:银耳|是否满意:满意|原因:煮完汤黏稠度刚好，口感细腻]
-result: [商品名称:银耳|是否满意:满意|原因:价格实惠，学生党也能天天吃]
-result: [商品名称:银耳|是否满意:不满意|原因:有霉味，不敢吃]
-result: [商品名称:银耳|是否满意:不满意|原因:物流慢，到货时包装全破了]
-result: [商品名称:银耳炖牛奶|是否满意:满意|原因:超好喝，比奶茶健康，孩子也喜欢]
-result: [商品名称:银耳|是否满意:满意|原因:品质稳定，出胶快，性价比之王]
-result: [商品名称:银耳炖桃胶、皂角米|是否满意:满意|原因:养颜圣品，女生必囤]
-result: [商品名称:银耳|是否满意:满意|原因:客服态度好、问题解答耐心，购物体验满分]
-result: [商品名称:银耳|是否满意:不满意|原因:包装漏气，银耳受潮结块]
-result: [商品名称:银耳|是否满意:不满意|原因:分量缩水，和描述不符]
-result: [商品名称:即食银耳|是否满意:满意|原因:超方便，加热2分钟就能喝，营养又省时]
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏、颜色自然、孕妇和宝宝都能放心吃]
-result: [商品名称:银耳食谱|是否满意:满意|原因:超实用，解锁了超多新吃法]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性超好，干燥不返潮，储存方便]
-result: [商品名称:银耳羹|是否满意:满意|原因:美容养颜，很有营养]
-result: [商品名称:银耳搭配红枣枸杞|是否满意:满意|原因:营养又美味]
-result: [商品名称:银耳|是否满意:满意|原因:品质好，比线下店新鲜]
-result: [商品名称:银耳|是否满意:不满意|原因:碎渣太多，泡发后全是小颗粒]
-result: [商品名称:银耳|是否满意:不满意|原因:煮完汤发酸，质量有问题]
-result: [商品名称:银耳|是否满意:不满意|原因:杂质多，洗了三遍还有沙子]
-result: [商品名称:银耳|是否满意:不满意|原因:客服态度差，问题不解决]
-result: [商品名称:银耳|是否满意:满意|原因:胶质丰富，长期吃感觉皮肤更水润]
-result: [商品名称:银耳|是否满意:满意|原因:煮后胶质浓稠，冷藏后像果冻一样]
-result: [商品名称:银耳|是否满意:满意|原因:出胶快，性价比超高]
-result: [商品名称:即食银耳|是否满意:满意|原因:方便快捷，早餐必备]
-result: [商品名称:银耳|是否满意:不满意|原因:煮一小时都不出胶]
-result: [商品名称:银耳|是否满意:不满意|原因:炖不烂，口感像树皮]
-result: [商品名称:银耳|是否满意:满意|原因:香甜滋补，秋冬必备]
-result: [商品名称:银耳|是否满意:满意|原因:低卡又饱腹，减肥期当代餐超合适]
-result: [商品名称:银耳|是否满意:满意|原因:泡发后煮粥特别软糯，全家都爱喝]
-result: [商品名称:银耳|是否满意:满意|原因:分量足，价格比超市便宜]
-result: [商品名称:银耳炖桃胶|是否满意:满意|原因:口感顺滑，愿意复购]
-result: [商品名称:即食银耳|是否满意:不满意|原因:太甜，香精味重]
-result: [商品名称:银耳|是否满意:满意|原因:口感细腻软糯，炖汤后入口即化，全家人都超爱]
-result: [商品名称:银耳|是否满意:满意|原因:独立小包装，干净卫生，一次一包刚刚好]
-result: [商品名称:银耳|是否满意:满意|原因:搭配雪梨炖煮可润肺止咳，是换季必备]
-whole_star_list: [5, 2, 2, 5, 5, 5, 1, 5, 5, 5, 3, 4, 5, 5, 5, 2, 2, 5, 5, 4, 5, 2, 2, 4, 5, 5, 5, 5, 4, 5, 3, 0, 2, 2, 5, 5, 5, 4, 2, 2, 5, 5, 4, 5, 5, 2, 4, 5, 5] whole_review_list: ['满意', '不满意', '不满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意']
-INFO:     192.168.78.130:49748 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏，孕妇吃着放心]
-result: [商品名称:银耳|是否满意:不满意|原因:颜色发黄，怀疑硫磺熏过]
-result: [商品名称:银耳|是否满意:不满意|原因:宣传“有机”但实际无认证，涉嫌虚假宣传]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率超高，一小朵能煮一大锅胶质满满的银耳羹]
-result: [商品名称:桂花|是否满意:满意|原因:煮银耳时加点桂花，香气扑鼻，幸福感爆棚]
-result: [商品名称:银耳|是否满意:满意|原因:煮完胶质满满，感觉皮肤变好了]
-result: [商品名称:银耳|是否满意:不满意|原因:品质下降]
-result: [商品名称:银耳|是否满意:满意|原因:比超市买的更干净，几乎无杂质，洗一遍就能煮]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性好，干燥无杂质]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率高，一小朵能煮一大锅]
-result: [商品名称:银耳|是否满意:不满意|原因:价格虚高，比菜市场贵一倍]
-result: [商品名称:银耳|是否满意:满意|原因:碎渣少，朵形完整，是精选好货]
-result: [商品名称:银耳|是否满意:满意|原因:质量稳定，每次炖甜品都满意]
-result: [商品名称:银耳|是否满意:满意|原因:煮完汤黏稠度刚好，口感细腻]
-result: [商品名称:银耳|是否满意:满意|原因:价格实惠，学生党也能天天吃]
-result: [商品名称:银耳|是否满意:不满意|原因:有霉味，不敢吃]
-result: [商品名称:银耳|是否满意:不满意|原因:物流慢，到货时包装全破了]
-result: [商品名称:银耳炖牛奶|是否满意:满意|原因:超好喝，比奶茶健康，孩子也喜欢]
-result: [商品名称:银耳|是否满意:满意|原因:品质稳定，出胶快，性价比之王]
-result: [商品名称:银耳炖桃胶、皂角米|是否满意:满意|原因:养颜圣品，女生必囤]
-result: [商品名称:银耳|是否满意:满意|原因:客服态度好、问题解答耐心，购物体验满分]
-result: [商品名称:银耳|是否满意:不满意|原因:包装漏气，银耳受潮结块]
-result: [商品名称:银耳|是否满意:不满意|原因:分量缩水，和描述不符]
-result: [商品名称:即食银耳|是否满意:满意|原因:超方便，加热2分钟就能喝，营养又省时]
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏、颜色自然、孕妇和宝宝都能放心吃]
-result: [商品名称:银耳食谱|是否满意:满意|原因:超实用，解锁了超多新吃法]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性超好，干燥不返潮，储存方便]
-result: [商品名称:银耳羹|是否满意:满意|原因:美容养颜，很有营养]
-result: [商品名称:银耳搭配红枣枸杞|是否满意:满意|原因:营养又美味]
-result: [商品名称:银耳|是否满意:满意|原因:品质好，比线下店新鲜]
-result: [商品名称:银耳|是否满意:不满意|原因:碎渣太多，泡发后全是小颗粒]
-result: [商品名称:银耳|是否满意:不满意|原因:煮完汤发酸，质量有问题]
-result: [商品名称:银耳|是否满意:不满意|原因:杂质多，洗了三遍还有沙子]
-result: [商品名称:银耳|是否满意:不满意|原因:客服态度差，问题不解决]
-result: [商品名称:银耳|是否满意:满意|原因:胶质丰富，长期吃感觉皮肤更水润]
-result: [商品名称:银耳|是否满意:满意|原因:煮后胶质浓稠，冷藏后像果冻一样，超赞]
-result: [商品名称:银耳|是否满意:满意|原因:出胶快，性价比超高]
-result: [商品名称:即食银耳|是否满意:满意|原因:方便快捷，早餐必备]
-result: [商品名称:银耳|是否满意:不满意|原因:煮一小时都不出胶]
-result: [商品名称:银耳|是否满意:不满意|原因:炖不烂，口感像树皮]
-result: [商品名称:银耳|是否满意:满意|原因:搭配红枣枸杞炖煮香甜滋补，是秋冬必备]
-result: [商品名称:银耳|是否满意:满意|原因:低卡又饱腹，减肥期当代餐超合适]
-result: [商品名称:银耳|是否满意:满意|原因:泡发后煮粥特别软糯，全家都爱喝]
-result: [商品名称:银耳|是否满意:满意|原因:分量足，价格比超市便宜]
-result: [商品名称:银耳炖桃胶|是否满意:满意|原因:口感顺滑，愿意复购]
-result: [商品名称:即食银耳|是否满意:不满意|原因:太甜，香精味重]
-result: [商品名称:银耳|是否满意:满意|原因:口感细腻软糯，炖汤后入口即化，全家人都超爱]
-result: [商品名称:银耳|是否满意:满意|原因:独立小包装，干净卫生，一次一包刚刚好]
-result: [商品名称:银耳|是否满意:满意|原因:搭配雪梨炖煮可润肺止咳，是换季必备]
-one_product_str: 商品“银耳”总评论数39。其中25人满意(64%)，14人不满意(36%)，0人持中性意见(0%)，评价如下：无硫熏，孕妇吃着放心|颜色发黄，怀疑硫磺熏过|宣传“有机”但实际无认证，涉嫌虚假宣传|泡发率超高，一小朵能煮一大锅胶质满满的银耳羹|煮完胶质满满，感觉皮肤变好了|品质下降|比超市买的更干净，几乎无杂质，洗一遍就能煮|包装密封性好，干燥无杂质|泡发率高，一小朵能煮一大锅|价格虚高，比菜市场贵一倍|碎渣少，朵形完整，是精选好货|质量稳定，每次炖甜品都满意|煮完汤黏稠度刚好，口感细腻|价格实惠，学生党也能天天吃|有霉味，不敢吃|物流慢，到货时包装全破了|品质稳定，出胶快，性价比之王|客服态度好、问题解答耐心，购物体验满分|包装漏气，银耳受潮结块|分量缩水，和描述不符|无硫熏、颜色自然、孕妇和宝宝都能放心吃|包装密封性超好，干燥不返潮，储存方便|品质好，比线下店新鲜|碎渣太多，泡发后全是小颗粒|煮完汤发酸，质量有问题|杂质多，洗了三遍还有沙子|客服态度差，问题不解决|胶质丰富，长期吃感觉皮肤更水润|煮后胶质浓稠，冷藏后像果冻一样，超赞|出胶快，性价比超高|煮一小时都不出胶|炖不烂，口感像树皮|搭配红枣枸杞炖煮香甜滋补，是秋冬必备|低卡又饱腹，减肥期当代餐超合适|泡发后煮粥特别软糯，全家都爱喝|分量足，价格比超市便宜|口感细腻软糯，炖汤后入口即化，全家人都超爱|独立小包装，干净卫生，一次一包刚刚好|搭配雪梨炖煮可润肺止咳，是换季必备
-one_product_str: 商品“桂花”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：煮银耳时加点桂花，香气扑鼻，幸福感爆棚
-one_product_str: 商品“银耳炖牛奶”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：超好喝，比奶茶健康，孩子也喜欢
-one_product_str: 商品“银耳炖桃胶、皂角米”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：养颜圣品，女生必囤
-one_product_str: 商品“即食银耳”总评论数3。其中2人满意(67%)，1人不满意(33%)，0人持中性意见(0%)，评价如下：超方便，加热2分钟就能喝，营养又省时|方便快捷，早餐必备|太甜，香精味重
-one_product_str: 商品“银耳食谱”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：超实用，解锁了超多新吃法
-one_product_str: 商品“银耳羹”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：美容养颜，很有营养
-one_product_str: 商品“银耳搭配红枣枸杞”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：营养又美味
-one_product_str: 商品“银耳炖桃胶”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：口感顺滑，愿意复购
-INFO:     192.168.78.130:47564 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47570 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47572 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53398 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-ema: 0     25.000000
-1     27.500000
-2     36.250000
-3     43.125000
-4     49.062500
-5     59.531250
-6     67.265625
-7     78.632812
-8     64.316406
-9     49.658203
-10    39.829102
-11    42.414551
+sales_predict_tool input ItemName:洗碗布 sales_data_list:[5, 6, 10, 8, 3, 8, 5, 6, 12, 8, 15, 20, 13.67]
+ema: 0      5.000000
+1      5.500000
+2      7.750000
+3      7.875000
+4      5.437500
+5      6.718750
+6      5.859375
+7      5.929688
+8      8.964844
+9      8.482422
+10    11.741211
+11    15.870605
+12    14.771240
 dtype: float64
-销量预测结果forecast: 42.41455078125
-INFO:     192.168.78.130:58354 - "POST /mcp HTTP/1.1" 200 OK
+销量预测结果forecast: 14.771240234375
+sales_predict_tool output:商品洗碗布历史销量数据为:[5, 6, 10, 8, 3, 8, 5, 6, 12, 8, 15, 20, 13.67],经过指数平滑移动平均预测下一个月的销量为:14.771240234375
+INFO:     192.168.78.130:59328 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58358 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 70b9cebf1027461aac3992ed6953184a
+INFO:     192.168.78.130:47246 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47258 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:47272 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47288 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:58370 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47292 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:45922 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:47274 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:47284 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:53846 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:42784 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 1d13e61ea9984b998d1fa01416eb469a
+INFO:     192.168.78.130:42198 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42210 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:42212 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:42228 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:42230 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:46440 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:46452 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Created new transport with session ID: 44906f89502449e38bcc69bb670e13bc
+INFO:     192.168.78.130:33174 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:33188 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:33192 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:33198 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:33206 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36114 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+INFO:     192.168.78.130:36128 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type CallToolRequest
-Created new transport with session ID: 7c181cad3898445980e3bb029116a435
-ema: 0     25.000000
-1     27.500000
-2     36.250000
-3     43.125000
-4     49.062500
-5     59.531250
-6     67.265625
-7     78.632812
-8     64.316406
-9     49.658203
-10    39.829102
-11    42.414551
+sales_predict_tool input ItemName:银耳 sales_data_list:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12]
+ema: 0     3.000000
+1     3.500000
+2     4.750000
+3     4.875000
+4     2.937500
+5     3.968750
+6     3.484375
+7     3.742188
+8     5.871094
+9     5.435547
+10    7.717773
+11    9.858887
 dtype: float64
-销量预测结果forecast: 42.41455078125
-INFO:     192.168.78.130:48334 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:48348 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:48352 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:48364 - "POST /mcp HTTP/1.1" 200 OK
+销量预测结果forecast: 9.85888671875
+sales_predict_tool output:商品银耳历史销量数据为:[3, 4, 6, 5, 1, 5, 3, 4, 8, 5, 10, 12],经过指数平滑移动平均预测下一个月的销量为:9.85888671875
+INFO:     192.168.78.130:40704 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55158 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 4d70ae1e24c84a0d85c9cbe0d47a703e
+INFO:     192.168.78.130:48036 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:48040 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:48048 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:48056 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55162 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:48064 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55168 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44908 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:41684 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:46436 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:41688 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 84662077f40c4129b5f8ed9555e2f9ed
+INFO:     192.168.78.130:36830 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36844 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:36854 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36856 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:41700 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36860 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Terminating session: 7c181cad3898445980e3bb029116a435
-INFO:     192.168.78.130:59154 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: d4957ac874f8472eb4474bd4863d7692
-INFO:     192.168.78.130:55130 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55132 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:55148 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55160 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:43476 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54864 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:54044 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54878 - "POST /mcp HTTP/1.1" 200 OK
+Created new transport with session ID: 45ad5ca73bfe45a2b880f8bf5cf16910
+INFO:     192.168.78.130:41076 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41092 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     192.168.78.130:41106 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41122 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54894 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:41136 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-Created new transport with session ID: 0dad14bf668345529499774c5d3a6a90
-INFO:     192.168.78.130:55584 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55594 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:55602 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55610 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:44226 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60830 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60838 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60840 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:46984 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-Created new transport with session ID: 08ed40f9c9a847c0bda227276c3c4e81
-ema: 0     25.000000
-1     27.500000
-2     36.250000
-3     43.125000
-4     49.062500
-5     59.531250
-6     67.265625
-7     78.632812
-8     64.316406
-9     49.658203
-10    39.829102
-11    42.414551
-dtype: float64
-销量预测结果forecast: 42.41455078125
-INFO:     192.168.78.130:53890 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53898 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53912 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53924 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38840 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38854 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:38868 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48292 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48294 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:48308 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 9308fec7b2884ec98a75cca73ec5f9d3
-INFO:     192.168.78.130:37852 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:37866 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:37882 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:37890 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54554 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54564 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:54574 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 3f481566100a4e8ea9987d19ee68db08
-INFO:     192.168.78.130:44212 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:44218 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:44226 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:44242 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 6b105383e9254e5da7a9d4f04b00dcf4
-INFO:     192.168.78.130:43306 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43308 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:43320 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43334 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 348eacddee234636bfc3373208472f1b
-INFO:     192.168.78.130:41698 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41704 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:41718 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41724 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 79e054242daa420b98ca675310002f53
-INFO:     192.168.78.130:53990 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53992 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53994 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54010 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 8ef5047ddd7d40ceb8da9cd326143cfd
-INFO:     192.168.78.130:58160 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58174 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:58190 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58206 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: ea3102f603244cbdabf09291bcce1267
-INFO:     192.168.78.130:36060 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:36064 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:36080 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:36090 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 6849e0ef9dfd4f48a9bca8b48a942138
-INFO:     192.168.78.130:35670 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:35680 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:35684 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:35696 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 2ec9cde1271f46a88a4c938387ab6c6d
-INFO:     192.168.78.130:43846 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43860 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:43872 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:43880 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: 2ec9cde1271f46a88a4c938387ab6c6d
-INFO:     192.168.78.130:50886 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: 9447e1b2e0f14c0b9f1866ea4e1dae35
-INFO:     192.168.78.130:34048 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34064 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:34080 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34082 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: 9447e1b2e0f14c0b9f1866ea4e1dae35
-INFO:     192.168.78.130:59552 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: 917d8b43c05c41e2b78e17c84422da59
-INFO:     192.168.78.130:55764 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55776 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:55782 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:55784 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 0f780a04b0754aa0962e0ba01ac00fe2
-INFO:     192.168.78.130:37826 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:37834 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:37842 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:37846 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: f203e3c649ab4635be87339e8ab6b170
-INFO:     192.168.78.130:54886 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54888 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:54902 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54914 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: e43e54b13dae4730bf0f1483c4601bb4
-INFO:     192.168.78.130:42962 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:42978 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:42990 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:42994 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: ea4b9b5c35ea4d359637ca882ce83382
-INFO:     192.168.78.130:46492 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:46508 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:46522 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:46534 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 15d325c8fa8e4356808f5731927eb1ec
-INFO:     192.168.78.130:45584 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:45596 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:45604 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:45612 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: a67482a036de4993b20cc88e0920e711
-INFO:     192.168.78.130:49974 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:49976 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:49980 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:49982 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: a67482a036de4993b20cc88e0920e711
-INFO:     192.168.78.130:45846 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: 2159e0c72721453e95b163a60c11efa7
-INFO:     192.168.78.130:58088 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58098 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:58100 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58108 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: 2159e0c72721453e95b163a60c11efa7
-INFO:     192.168.78.130:59438 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: f87ffed80b6a4e9593c27b5ee97c13cd
-INFO:     192.168.78.130:58316 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58328 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:58342 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:58356 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: f87ffed80b6a4e9593c27b5ee97c13cd
-INFO:     192.168.78.130:49332 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: b6f0698494ba45a492784b75a10d58c6
-INFO:     192.168.78.130:34070 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34082 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:34090 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:34094 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: b6f0698494ba45a492784b75a10d58c6
-INFO:     192.168.78.130:51362 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: d208e02078cb4c9d9f896207ea58c6da
-INFO:     192.168.78.130:52110 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52112 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:52118 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:52130 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: d208e02078cb4c9d9f896207ea58c6da
-INFO:     192.168.78.130:51680 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: b270a75e51ae446998dd3805a201bcf7
-INFO:     192.168.78.130:37792 - "GET /mcp HTTP/1.1" 406 Not Acceptable
-Created new transport with session ID: ce0a9e0ab0da4032b58b623908741d9a
-INFO:     192.168.78.130:37096 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:37100 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:37102 - "GET /mcp HTTP/1.1" 200 OK
-Terminating session: ce0a9e0ab0da4032b58b623908741d9a
-INFO:     192.168.78.130:37108 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: df6cff123592447bb5f6ed7f28aa024a
-INFO:     192.168.78.130:47798 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:47812 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:47818 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:47824 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: df6cff123592447bb5f6ed7f28aa024a
-INFO:     192.168.78.130:59344 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: ff3b126427664ad2b4b3c510e03150fd
-INFO:     192.168.78.130:57014 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:57016 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:57020 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:57030 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:45940 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:45946 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:45960 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: ff99f15aac36467a966b7a71d7dd7be4
-INFO:     192.168.78.130:54438 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54442 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:54450 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:54452 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 7e0e0a79ba744839b984377340e0b3c6
-INFO:     192.168.78.130:53058 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53072 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53074 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53088 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: 7e0e0a79ba744839b984377340e0b3c6
-INFO:     192.168.78.130:59272 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: a7ebe3152ae04111be76ef61422d9adb
-INFO:     192.168.78.130:53926 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53938 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:53948 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:53952 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: a7ebe3152ae04111be76ef61422d9adb
-INFO:     192.168.78.130:53956 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: cdfa8a261fb3422b90b8b9328c3d4c32
-INFO:     192.168.78.130:41306 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41314 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:41316 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:41330 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Terminating session: cdfa8a261fb3422b90b8b9328c3d4c32
-INFO:     192.168.78.130:41342 - "DELETE /mcp HTTP/1.1" 200 OK
-Created new transport with session ID: 958cb6f4c12546cf9753629aaceb6655
-INFO:     192.168.78.130:45690 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:45696 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:45706 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:45708 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49338 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49340 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49354 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49976 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49992 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:49998 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:39010 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-ema: 0     25.000000
-1     27.500000
-2     36.250000
-3     43.125000
-4     49.062500
-5     59.531250
-6     67.265625
-7     78.632812
-8     64.316406
-9     49.658203
-10    39.829102
-11    42.414551
-dtype: float64
-销量预测结果forecast: 42.41455078125
-INFO:     192.168.78.130:41622 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:41632 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:41646 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55858 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55866 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:55868 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:43836 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:43844 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:43852 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47010 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47020 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:47028 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: d423b7065a384a158a00785beb4b12fa
-INFO:     192.168.78.130:44652 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:44666 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:44680 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:44688 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53088 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53090 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53098 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-Created new transport with session ID: 3708503412fa41c4b9903d4ae50632f6
-INFO:     192.168.78.130:57928 - "POST /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:57944 - "POST /mcp HTTP/1.1" 202 Accepted
-INFO:     192.168.78.130:57956 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     192.168.78.130:57958 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42536 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42548 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:42560 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35484 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35486 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:35496 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:53056 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-reviews_list: ['银耳无硫熏，孕妇吃着放心！', '银耳颜色发黄，怀疑硫磺熏过！', '银耳宣传“有机”实际无认证，虚假宣传！', '这款银耳泡发率超高，一小朵就能煮一大锅胶质满满的银耳羹！', '煮银耳时加点桂花，香气扑鼻，幸福感爆棚！', '银耳煮完胶质满满，感觉皮肤变好了！', '复购的银耳品质下降，不再买了！', '比超市买的银耳更干净，几乎无杂质，洗一遍就能煮！', '银耳包装密封性好，干燥无杂质，推荐！', '泡发率高的银耳，一小朵能煮一大锅！', '银耳价格虚高，比菜市场贵一倍！', '银耳碎渣少，朵形完整，一看就是精选好货！', '这款银耳质量稳定，每次炖甜品都满意！', '煮完银耳汤黏稠度刚好，口感细腻，喜欢！', '银耳价格实惠，学生党也能天天吃！', '这次银耳有霉味，不敢吃，差评！', '物流慢，银耳到货时包装全破了！', '银耳炖牛奶超好喝，比奶茶健康多了，孩子也喜欢！', '回购N次的银耳，品质稳定，出胶快，性价比之王！', '银耳炖桃胶、皂角米绝配，养颜圣品，女生必囤！', '客服态度超好，银耳问题解答超耐心，购物体验满分！', '包装漏气，银耳受潮结块了！', '银耳分量缩水，和描述不符！', '即食银耳超方便，早上加热2分钟就能喝，营养又省时！', '银耳无硫熏，颜色自然，孕妇和宝宝都能放心吃！', '卖家送的银耳食谱超实用，解锁了超多新吃法！', '包装密封性超好，银耳干燥不返潮，储存方便！', '银耳羹美容养颜，觉得很有营养！', '银耳搭配红枣枸杞绝了，营养又美味！', '银耳品质好，比线下店新鲜，会长期买！', '银耳碎渣太多，泡发后全是小颗粒！', '煮完银耳汤发酸，质量有问题！', '银耳杂质多，洗了三遍还有沙子！', '客服态度差，银耳问题不解决！', '银耳胶质丰富，长期吃感觉皮肤更水润了！', '银耳煮后胶质浓稠，冷藏后像果冻一样，超赞！', '复购多次的银耳，出胶快，性价比超高！', '即食银耳方便快捷，早餐必备！', '银耳煮一小时都不出胶，垃圾食品！', '银耳炖不烂，口感像树皮！', '银耳搭配红枣、枸杞炖煮，香甜滋补，秋冬必备！', '银耳低卡又饱腹，减肥期当代餐超合适！', '银耳泡发后煮粥特别软糯，全家都爱喝！', '银耳分量足，价格比超市便宜，会继续买！', '银耳炖桃胶口感顺滑，愿意复购！', '即食银耳太甜，香精味重，不喜欢！', '银耳口感细腻软糯，炖汤后入口即化，全家人都超爱！', '独立小包装银耳，干净卫生，一次一包刚刚好！', '银耳搭配雪梨炖煮，润肺止咳，换季必备！']
-stars_list: <class 'list'>
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏，孕妇吃着放心]
-result: [商品名称:银耳|是否满意:不满意|原因:颜色发黄，怀疑硫磺熏过]
-result: [商品名称:银耳|是否满意:不满意|原因:宣传“有机”但实际无认证，涉嫌虚假宣传]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率超高，一小朵能煮一大锅胶质满满的银耳羹]
-result: [商品名称:桂花|是否满意:满意|原因:煮银耳时加点桂花，香气扑鼻，幸福感爆棚]
-result: [商品名称:银耳|是否满意:满意|原因:煮完胶质满满，感觉皮肤变好了]
-result: [商品名称:银耳|是否满意:不满意|原因:品质下降]
-result: [商品名称:银耳|是否满意:满意|原因:比超市买的更干净，几乎无杂质，洗一遍就能煮]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性好，干燥无杂质]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率高，一小朵能煮一大锅]
-result: [商品名称:银耳|是否满意:不满意|原因:价格虚高，比菜市场贵一倍]
-result: [商品名称:银耳|是否满意:满意|原因:碎渣少，朵形完整，是精选好货]
-result: [商品名称:银耳|是否满意:满意|原因:质量稳定，每次炖甜品都满意]
-result: [商品名称:银耳|是否满意:满意|原因:煮完汤黏稠度刚好，口感细腻]
-result: [商品名称:银耳|是否满意:满意|原因:价格实惠，学生党也能天天吃]
-result: [商品名称:银耳|是否满意:不满意|原因:有霉味，不敢吃]
-result: [商品名称:银耳|是否满意:不满意|原因:物流慢，到货时包装全破了]
-result: [商品名称:银耳炖牛奶|是否满意:满意|原因:超好喝，比奶茶健康，孩子也喜欢]
-result: [商品名称:银耳|是否满意:满意|原因:品质稳定，出胶快，性价比之王]
-result: [商品名称:银耳炖桃胶、皂角米|是否满意:满意|原因:养颜圣品，女生必囤]
-result: [商品名称:银耳|是否满意:满意|原因:客服态度好、问题解答耐心，购物体验满分]
-result: [商品名称:银耳|是否满意:不满意|原因:包装漏气，银耳受潮结块]
-result: [商品名称:银耳|是否满意:不满意|原因:分量缩水，和描述不符]
-result: [商品名称:即食银耳|是否满意:满意|原因:超方便，加热2分钟就能喝，营养又省时]
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏、颜色自然、孕妇和宝宝都能放心吃]
-result: [商品名称:银耳食谱|是否满意:满意|原因:超实用，解锁了超多新吃法]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性超好，干燥不返潮，储存方便]
-result: [商品名称:银耳羹|是否满意:满意|原因:美容养颜，很有营养]
-result: [商品名称:银耳搭配红枣枸杞|是否满意:满意|原因:营养又美味]
-result: [商品名称:银耳|是否满意:满意|原因:品质好，比线下店新鲜]
-result: [商品名称:银耳|是否满意:不满意|原因:碎渣太多，泡发后全是小颗粒]
-result: [商品名称:银耳|是否满意:不满意|原因:煮完汤发酸，质量有问题]
-result: [商品名称:银耳|是否满意:不满意|原因:杂质多，洗了三遍还有沙子]
-result: [商品名称:银耳|是否满意:不满意|原因:客服态度差，问题不解决]
-result: [商品名称:银耳|是否满意:满意|原因:胶质丰富，长期吃感觉皮肤更水润]
-result: [商品名称:银耳|是否满意:满意|原因:煮后胶质浓稠，冷藏后像果冻一样，超赞]
-result: [商品名称:银耳|是否满意:满意|原因:出胶快，性价比超高]
-result: [商品名称:即食银耳|是否满意:满意|原因:方便快捷，早餐必备]
-result: [商品名称:银耳|是否满意:不满意|原因:煮一小时都不出胶]
-result: [商品名称:银耳|是否满意:不满意|原因:炖不烂，口感像树皮]
-result: [商品名称:银耳|是否满意:满意|原因:搭配红枣枸杞炖煮香甜滋补，是秋冬必备]
-result: [商品名称:银耳|是否满意:满意|原因:低卡又饱腹，减肥期当代餐超合适]
-result: [商品名称:银耳|是否满意:满意|原因:泡发后煮粥特别软糯，全家都爱喝]
-result: [商品名称:银耳|是否满意:满意|原因:分量足，价格比超市便宜]
-result: [商品名称:银耳炖桃胶|是否满意:满意|原因:口感顺滑，愿意复购]
-result: [商品名称:即食银耳|是否满意:不满意|原因:太甜，香精味重]
-result: [商品名称:银耳|是否满意:满意|原因:口感细腻软糯，炖汤后入口即化，全家人都超爱]
-result: [商品名称:银耳|是否满意:满意|原因:独立小包装，干净卫生，一次一包刚刚好]
-result: [商品名称:银耳|是否满意:满意|原因:搭配雪梨炖煮可润肺止咳，是换季必备]
-whole_star_list: [5, 2, 2, 5, 5, 5, 1, 5, 5, 5, 3, 4, 5, 5, 5, 2, 2, 5, 5, 4, 5, 2, 2, 4, 5, 5, 5, 5, 4, 5, 3, 0, 2, 2, 5, 5, 5, 4, 2, 2, 5, 5, 4, 5, 5, 2, 4, 5, 5] whole_review_list: ['满意', '不满意', '不满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '不满意', '不满意', '满意', '满意', '满意', '满意', '满意', '不满意', '满意', '满意', '满意']
-INFO:     192.168.78.130:39672 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type CallToolRequest
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏，孕妇吃着放心]
-result: [商品名称:银耳|是否满意:不满意|原因:颜色发黄，怀疑硫磺熏过]
-result: [商品名称:银耳|是否满意:不满意|原因:宣传“有机”但实际无认证，涉嫌虚假宣传]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率超高，一小朵能煮一大锅胶质满满的银耳羹]
-result: [商品名称:桂花|是否满意:满意|原因:煮银耳时加点香气扑鼻，幸福感爆棚]
-result: [商品名称:银耳|是否满意:满意|原因:煮完胶质满满，感觉皮肤变好了]
-result: [商品名称:银耳|是否满意:不满意|原因:品质下降]
-result: [商品名称:银耳|是否满意:满意|原因:比超市买的更干净，几乎无杂质，洗一遍就能煮]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性好，干燥无杂质]
-result: [商品名称:银耳|是否满意:满意|原因:泡发率高，一小朵能煮一大锅]
-result: [商品名称:银耳|是否满意:不满意|原因:价格虚高，比菜市场贵一倍]
-result: [商品名称:银耳|是否满意:满意|原因:碎渣少，朵形完整，是精选好货]
-result: [商品名称:银耳|是否满意:满意|原因:质量稳定，每次炖甜品都满意]
-result: [商品名称:银耳|是否满意:满意|原因:煮完汤黏稠度刚好，口感细腻]
-result: [商品名称:银耳|是否满意:满意|原因:价格实惠，学生党也能天天吃]
-result: [商品名称:银耳|是否满意:不满意|原因:有霉味，不敢吃]
-result: [商品名称:银耳|是否满意:不满意|原因:物流慢，到货时包装全破了]
-result: [商品名称:银耳炖牛奶|是否满意:满意|原因:超好喝，比奶茶健康，孩子也喜欢]
-result: [商品名称:银耳|是否满意:满意|原因:品质稳定，出胶快，性价比之王]
-result: [商品名称:银耳炖桃胶、皂角米|是否满意:满意|原因:养颜圣品，女生必囤]
-result: [商品名称:银耳|是否满意:满意|原因:客服态度好、问题解答耐心，购物体验满分]
-result: [商品名称:银耳|是否满意:不满意|原因:包装漏气，银耳受潮结块]
-result: [商品名称:银耳|是否满意:不满意|原因:分量缩水，和描述不符]
-result: [商品名称:即食银耳|是否满意:满意|原因:超方便，加热2分钟就能喝，营养又省时]
-result: [商品名称:银耳|是否满意:满意|原因:无硫熏、颜色自然、孕妇和宝宝都能放心吃]
-result: [商品名称:银耳食谱|是否满意:满意|原因:超实用，解锁了超多新吃法]
-result: [商品名称:银耳|是否满意:满意|原因:包装密封性超好，干燥不返潮，储存方便]
-result: [商品名称:银耳羹|是否满意:满意|原因:美容养颜，很有营养]
-result: [商品名称:银耳搭配红枣枸杞|是否满意:满意|原因:营养又美味]
-result: [商品名称:银耳|是否满意:满意|原因:品质好，比线下店新鲜]
-result: [商品名称:银耳|是否满意:不满意|原因:碎渣太多，泡发后全是小颗粒]
-result: [商品名称:银耳|是否满意:不满意|原因:煮完汤发酸，质量有问题]
-result: [商品名称:银耳|是否满意:不满意|原因:杂质多，洗了三遍还有沙子]
-result: [商品名称:银耳|是否满意:不满意|原因:客服态度差，问题不解决]
-result: [商品名称:银耳|是否满意:满意|原因:胶质丰富，长期吃感觉皮肤更水润]
-result: [商品名称:银耳|是否满意:满意|原因:煮后胶质浓稠，冷藏后像果冻一样，超赞]
-result: [商品名称:银耳|是否满意:满意|原因:出胶快，性价比超高]
-result: [商品名称:即食银耳|是否满意:满意|原因:方便快捷，早餐必备]
-result: [商品名称:银耳|是否满意:不满意|原因:煮一小时都不出胶]
-result: [商品名称:银耳|是否满意:不满意|原因:炖不烂，口感像树皮]
-result: [商品名称:银耳|是否满意:满意|原因:搭配红枣枸杞炖煮香甜滋补，是秋冬必备]
-result: [商品名称:银耳|是否满意:满意|原因:低卡又饱腹，减肥期当代餐超合适]
-result: [商品名称:银耳|是否满意:满意|原因:泡发后煮粥特别软糯，全家都爱喝]
-result: [商品名称:银耳|是否满意:满意|原因:分量足，价格比超市便宜]
-result: [商品名称:银耳炖桃胶|是否满意:满意|原因:口感顺滑，愿意复购]
-result: [商品名称:即食银耳|是否满意:不满意|原因:太甜，香精味重]
-result: [商品名称:银耳|是否满意:满意|原因:口感细腻软糯，炖汤后入口即化，全家人都超爱]
-result: [商品名称:银耳|是否满意:满意|原因:独立小包装，干净卫生，一次一包刚刚好]
-result: [商品名称:银耳|是否满意:满意|原因:搭配雪梨炖煮可润肺止咳，是换季必备]
-one_product_str: 商品“银耳”总评论数39。其中25人满意(64%)，14人不满意(36%)，0人持中性意见(0%)，评价如下：无硫熏，孕妇吃着放心|颜色发黄，怀疑硫磺熏过|宣传“有机”但实际无认证，涉嫌虚假宣传|泡发率超高，一小朵能煮一大锅胶质满满的银耳羹|煮完胶质满满，感觉皮肤变好了|品质下降|比超市买的更干净，几乎无杂质，洗一遍就能煮|包装密封性好，干燥无杂质|泡发率高，一小朵能煮一大锅|价格虚高，比菜市场贵一倍|碎渣少，朵形完整，是精选好货|质量稳定，每次炖甜品都满意|煮完汤黏稠度刚好，口感细腻|价格实惠，学生党也能天天吃|有霉味，不敢吃|物流慢，到货时包装全破了|品质稳定，出胶快，性价比之王|客服态度好、问题解答耐心，购物体验满分|包装漏气，银耳受潮结块|分量缩水，和描述不符|无硫熏、颜色自然、孕妇和宝宝都能放心吃|包装密封性超好，干燥不返潮，储存方便|品质好，比线下店新鲜|碎渣太多，泡发后全是小颗粒|煮完汤发酸，质量有问题|杂质多，洗了三遍还有沙子|客服态度差，问题不解决|胶质丰富，长期吃感觉皮肤更水润|煮后胶质浓稠，冷藏后像果冻一样，超赞|出胶快，性价比超高|煮一小时都不出胶|炖不烂，口感像树皮|搭配红枣枸杞炖煮香甜滋补，是秋冬必备|低卡又饱腹，减肥期当代餐超合适|泡发后煮粥特别软糯，全家都爱喝|分量足，价格比超市便宜|口感细腻软糯，炖汤后入口即化，全家人都超爱|独立小包装，干净卫生，一次一包刚刚好|搭配雪梨炖煮可润肺止咳，是换季必备
-one_product_str: 商品“桂花”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：煮银耳时加点香气扑鼻，幸福感爆棚
-one_product_str: 商品“银耳炖牛奶”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：超好喝，比奶茶健康，孩子也喜欢
-one_product_str: 商品“银耳炖桃胶、皂角米”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：养颜圣品，女生必囤
-one_product_str: 商品“即食银耳”总评论数3。其中2人满意(67%)，1人不满意(33%)，0人持中性意见(0%)，评价如下：超方便，加热2分钟就能喝，营养又省时|方便快捷，早餐必备|太甜，香精味重
-one_product_str: 商品“银耳食谱”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：超实用，解锁了超多新吃法
-one_product_str: 商品“银耳羹”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：美容养颜，很有营养
-one_product_str: 商品“银耳搭配红枣枸杞”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：营养又美味
-one_product_str: 商品“银耳炖桃胶”总评论数1。其中1人满意(100%)，0人不满意(0%)，0人持中性意见(0%)，评价如下：口感顺滑，愿意复购
-INFO:     192.168.78.130:44196 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44206 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:44208 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60482 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60492 - "POST /mcp HTTP/1.1" 200 OK
-Processing request of type ListToolsRequest
-INFO:     192.168.78.130:60502 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     192.168.78.130:36942 - "POST /mcp HTTP/1.1" 200 OK
 Processing request of type ListToolsRequest

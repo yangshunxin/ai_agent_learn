@@ -60,6 +60,20 @@
             "request": "launch",
             "program": "${workspaceFolder}/langGraph_basic_learning/graph_hello_world.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "llm_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/llm_test.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "multi_mcp_service",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/multi_mcp_service.py",
+            "console": "integratedTerminal"
         }
         
     ]

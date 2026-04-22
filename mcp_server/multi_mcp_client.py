@@ -1,4 +1,3 @@
-#%%
 """
 一个 MCP client实现多个 MCP server连接+调用实战
 pip install openai

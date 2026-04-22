@@ -22,20 +22,20 @@ async def LLM_replay_old(messages):
     return result.choices[0].message.content
 
 
-def LLM_replay(messages):
+async def LLM_replay(messages):
     """
     prompt_template:大模型调用的提示词模板
     message:大模型调用的用户输入
     """
     response = Generation.call(
         # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key = "sk-xxx",
-        api_key=os.getenv("DASHSCOPE_API_KEY"),
-        model="qwen3-max",
+        api_key=os.getenv("QWEN_API_KEY"),
+        model="qwen-turbo", # qwen3-max
         messages=[{"role":"user","content":messages}],
         result_format="message",
         # 开启深度思考
         enable_thinking=False,
-        temperature = 0
+        stream=False
     )
 
     if response.status_code == 200:

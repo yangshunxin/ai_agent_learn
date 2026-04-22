@@ -16,184 +16,212 @@ from mcp import ClientSession
 import sys
 import os
 import uvicorn
-from fastapi import FastAPI
-from pydantic import BaseModel
 import time
 from pathlib import Path
+from contextlib import asynccontextmanager
+
+# ====================== Web 服务（FastAPI + 标准 OpenAI 接口）======================
+from fastapi import FastAPI
+from fastapi import Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles  
+from pydantic import BaseModel
+from typing import List, Optional, Dict, Any
+
 # 加载环境变量
 load_dotenv()
-app = FastAPI(title="AI for BI agent")
 
 #加载MCP服务器的地址
-server_url=os.getenv("server_url")
+server_url = os.getenv("server_url")
 
+MODULE_NAME=os.getenv("module_name")
+print("module_name:{}".format(MODULE_NAME))
+
+# ====================== 模型配置（可自由切换）======================
+MODEL_BACKEND = os.getenv("model_name")
+
+# OpenAI 配置
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+DEEPSEEK_MODEL = "deepseek-chat"
+
+# Ollama 配置（本地模型）
+OLLAMA_API_KEY = "ollama"  # 固定无需修改
+OLLAMA_BASE_URL = "http://{}:11434/v1".format(server_url)
+OLLAMA_MODEL = "qwen3:latest"  # 你本地的模型名 qwen llama3 gemma 都行
 
 #通用MCP连接管理类
 class MCPClient:
     def __init__(self):
-        """初始化 MCP Streamable HTTP 客户端"""
         self.exit_stack = AsyncExitStack()
-        self.api_key = os.getenv("DEEPSEEK_API_KEY")  # 读取 OpenAI API Key QWEN_API_KEY
-        self.base_url ="https://api.deepseek.com"   # 读取 BASE URL https://dashscope.aliyuncs.com/compatible-mode/v1
-        self.model = "deepseek-chat"  # 读取 model qwen-plus
-        if not self.api_key:
-            raise ValueError("未找到 API KEY. 请在 .env 文件中配置 API_KEY")
-        self.client = AsyncOpenAI(api_key=self.api_key, base_url=self.base_url)
-        self.sessions = {}  # 存储多个服务端会话
-        self.tools_map = {}  # 工具映射：工具名称 -> (服务端 ID, 端点URL)
+        self.sessions = {}
+        self.tools_map = {}
 
-    def connect_to_server(self, server_id: str, endpoint_url: str,protocal_type:str):
-        """
-        连接到 MCP SSE/steamble HTTP/stdio 服务器
-        :param server_id: 服务端标识符
-        :param endpoint_url: 服务端端点URL
-        """
+        # 自动根据 MODEL_BACKEND 初始化客户端
+        if MODEL_BACKEND == "deepseek":
+            self.client = AsyncOpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
+            self.model = DEEPSEEK_MODEL
+        elif MODEL_BACKEND == "ollama":
+            self.client = AsyncOpenAI(api_key=OLLAMA_API_KEY, base_url=OLLAMA_BASE_URL)
+            self.model = OLLAMA_MODEL
+        else:
+            raise ValueError("MODEL_BACKEND 必须是 openai 或 ollama")
+
+    async def connect_to_server(self, server_id: str, endpoint_url: str, protocal_type: str):
         if server_id in self.sessions:
-            raise ValueError(f"服务端 {server_id} 已经连接")
-        # 连接到sse服务器或者streamable-http服务器(这里不考虑stdio类型的服务器)
-        if protocal_type=="sse":
-            model_transport = self.exit_stack.enter_async_context(
-                sse_client(endpoint_url, timeout=10000, sse_read_timeout=10000)) #,sse_read_timeout=100,timeout=120
-            print("stream_transport:", model_transport)
-            read_stream, write_stream = model_transport  # , _ 注意sse返回只有read_steam和write_stream
-            # 创建会话
-        else: #如果protocal_type==streamable-http
-            model_transport= self.exit_stack.enter_async_context(
-                streamablehttp_client(endpoint_url,timeout=10000,sse_read_timeout=10000)
-            )
-            read_stream, write_stream, transport = model_transport
+            raise ValueError(f"服务端 {server_id} 已连接")
 
-        session = self.exit_stack.enter_async_context(
-            ClientSession(read_stream, write_stream))
-        session.initialize()
+        if protocal_type == "sse":
+            transport = await self.exit_stack.enter_async_context(
+                sse_client(endpoint_url, timeout=10000, sse_read_timeout=10000)
+            )
+            read_stream, write_stream = transport
+        else:
+            transport = await self.exit_stack.enter_async_context(
+                streamablehttp_client(endpoint_url, timeout=10000, sse_read_timeout=10000)
+            )
+            read_stream, write_stream, _ = transport
+
+        session = await self.exit_stack.enter_async_context(
+            ClientSession(read_stream, write_stream)
+        )
+        await session.initialize()
+
         self.sessions[server_id] = {
             "session": session,
             "read_stream": read_stream,
             "write_stream": write_stream,
             "endpoint_url": endpoint_url,
-            "protocal_type":protocal_type #协议类型
+            "protocal_type": protocal_type
         }
-        print(f"已连接到 MCP {protocal_type} 服务器: {server_id}")
-        print("self.sessions:",self.sessions)
-        # 更新工具映射
-        response = session.list_tools()
-        print("response:",response)
-        for tool in response.tools:
-            self.tools_map[tool.name] = (server_id, endpoint_url)
-    
-    def list_tools(self):
-        """列出所有服务端的工具"""
-        if not self.sessions:
-            print("没有已连接的服务端")
-            return
-        print("已连接的服务端工具列表:")
-        for tool_name, (server_id, _) in self.tools_map.items():
-            print(f"工具: {tool_name}, 来源服务端: {server_id}")
-    
-    def process_query(self, messages: list) -> str:
-        """
-        处理用户查询，支持多次工具调用
-        :param messages: 消息历史列表
-        :return: 最终响应内容
-        """
-        results = []
 
-        # 构建统一的工具列表
-        available_tools = []
-        for tool_name, (server_id, _) in self.tools_map.items():
-            session = self.sessions[server_id]["session"]
-            response = session.list_tools()
-            for tool in response.tools:
-                if tool.name == tool_name:
-                    # 确保函数名符合规范（替换连字符为下划线）
-                    safe_name = tool.name.replace('-', '_')
-                    available_tools.append({
-                        "type": "function",
-                        "function": {
-                            "name": safe_name,
-                            "description": tool.description,
-                            "parameters": tool.inputSchema
-                        }
-                    })
-        print('整合的服务端工具列表:', available_tools)
-        # 防止修改原始问题
-        conversation_history = messages.copy()
-        # 循环处理工具调用
+        # 同步工具列表
+        resp = await session.list_tools()
+        for tool in resp.tools:
+            self.tools_map[tool.name] = (server_id, endpoint_url)
+
+    async def list_all_tools(self):
+        tools = []
+        for server_id in self.sessions:
+            sess = self.sessions[server_id]["session"]
+            resp = await sess.list_tools()
+            for t in resp.tools:
+                safe_name = t.name.replace('-', '_')
+                tools.append({
+                    "type": "function",
+                    "function": {
+                        "name": safe_name,
+                        "description": t.description,
+                        "parameters": t.inputSchema
+                    }
+                })
+        return tools
+    
+    async def process_query(self, messages: list) -> dict:
+        """
+        标准 OpenAI 格式输出，可直接用于 WebUI
+        返回: { "content": str, "tool_calls": list, "full_history": list }
+        """
+        print(f"\n======================================")
+        print(f"🔵 开始处理用户请求")
+        print(f"📩 输入消息: {json.dumps(messages, ensure_ascii=False, indent=2)}")
+
+        tools = await self.list_all_tools()
+        print(f"🔧 加载可用工具数量: {len(tools)}")
+        if tools:
+            print(f"📋 工具列表: {json.dumps(tools, ensure_ascii=False, indent=2)}")
+
+        # ===================== 自动注入系统 Prompt（图片自动显示）=====================
+        system_prompt = f"""
+你是结果优化助手。
+规则：
+1. 如果你调用画图工具后返回了以http开头，并且以.png / .jpg / .svg 结尾的图片链接，
+   必须使用 Markdown 图片格式输出，让 Open WebUI 直接显示图片：
+   ![图表](图片链接)
+
+2. 如果是文字结果，正常回答即可，图片链接必须完整。
+"""
+        # 在消息历史最前面插入系统提示
+        history = [{"role": "system", "content": system_prompt}] + messages.copy()
+        # =============================================================================
+        
+        round_count = 0
+
         while True:
-            # 请求模型处理
-            response = self.client.chat.completions.create(
+            round_count += 1
+            print(f"\n---------------- 第 {round_count} 轮调用大模型 ----------------")
+
+            response = await self.client.chat.completions.create(
                 model=self.model,
-                messages=conversation_history, #取历史8轮消息以免上下文过长
-                tools=available_tools,
-                tool_choice="auto",
-                max_tokens=4096, # 作用：限制模型输出的最大token数, 4096（约 3000-5000 个英文单词，或 2000-3000 个汉字）
+                messages=history,
+                tools=tools if tools else None,
+                tool_choice="auto" if tools else None,
+                max_tokens=4096,
                 temperature=0,
-                stream=False,
-                timeout=60,
-                # parallel_tool_calls=True,  # 通义千问特有的控制
+                stream=False
             )
-            print("模型响应:", response)
-            # 检查是否需要工具调用
-            if response.choices[0].finish_reason == "tool_calls":
-                # 将模型的响应添加到对话历史中
-                conversation_history.append({
+
+            choice = response.choices[0]
+            msg = choice.message
+
+            print(f"🤖 模型原始返回: {str(msg)}")
+            print(f"✅ 结束原因: {choice.finish_reason}")
+
+            if choice.finish_reason == "tool_calls":
+                print(f"⚙️ 模型需要调用工具")
+
+                history.append({
                     "role": "assistant",
-                    "content": response.choices[0].message.content,
-                    "tool_calls": response.choices[0].message.tool_calls
+                    "content": msg.content,
+                    "tool_calls": msg.tool_calls
                 })
 
-                tool_calls = response.choices[0].message.tool_calls
-                print("工具调用请求:", tool_calls)
-                # 执行每个工具调用
-                for tool_call in tool_calls:
-                    # 恢复原始工具名（将下划线转换回连字符）
-                    original_tool_name = tool_call.function.name
-                    tool_args = json.loads(tool_call.function.arguments)
-                    # 根据工具名称找到对应的服务端
-                    server_info = self.tools_map.get(original_tool_name)
-                    if not server_info:
-                        raise ValueError(f"未找到工具 {original_tool_name} 对应的服务端")
-                    server_id, _ = server_info
-                    session = self.sessions[server_id]["session"]
-                    print(f"\n调用工具 {original_tool_name} (服务端: {server_id}) 参数: {tool_args}\n")
-                    tool_result = session.call_tool(original_tool_name, tool_args)
-                    print("tool_result:", tool_result)
-                    # 将工具调用结果添加到对话历史中（符合 OpenAI 格式）
-                    conversation_history.append({
-                        "role": "tool",
-                        "tool_call_id": tool_call.id,
-                        "content": tool_result.content[0].text
-                    })
-                    # # 将工具调用结果添加到消息历史中
-                    # results.append(tool_result.content[0].text)
-                # messages=([{"role": "user", "content": f"原始问题：{messages}\n工具结果：{json.dumps(results)}"}]) #将用户问题和工具得到的答案拼接在一起组成上下文
-            else:
-                # 如果没有工具调用，返回最终响应
-                return response.choices[0].message.content
+                for call in msg.tool_calls:
+                    tool_name = call.function.name
+                    args = json.loads(call.function.arguments)
 
-    def chat_api(self, user_message: str, history=[]):
-        """
-        这是你自己的 Agent！
-        输入：用户消息 + 历史
-        输出：返回回答字符串
-        """
-        return self.process_query(history + {"role": "user", "content": user_message})
-        
-    def chat_loop(self):
-        """运行交互式聊天循环"""
-        print("multi MCP客户端已启动！输入 'exit' 退出")
-        while True:
-            try:
-                query = input("问: ").strip()
-                if query.lower() == 'exit':
-                    break
-                response = self.process_query([{"role": "user", "content": query}])
-                print(f"AI回复: {response}")
-            except Exception as e:
-                print(f"发生错误: {str(e)}")
-                print(e.with_traceback)
-    
-    def clean(self):
+                    print(f"\n⚙️ 准备调用工具: {tool_name}")
+                    print(f"📥 工具参数: {json.dumps(args, ensure_ascii=False, indent=2)}")
+
+                    # 还原原名（下划线 → 横杠）
+                    original_name = tool_name
+                    if original_name not in self.tools_map:
+                        original_name = tool_name.replace('_', '-')
+                        print(f"🔄 工具名映射为: {original_name}")
+
+                    server_id, _ = self.tools_map[original_name]
+                    print(f"🖥️ 来自MCP服务: {server_id}")
+
+                    # ===================== 计时开始 =====================
+                    start_time = time.time()
+
+                    sess = self.sessions[server_id]["session"]
+                    result = await sess.call_tool(original_name, args)
+                    content = result.content[0].text
+
+                    # ===================== 计时结束 =====================
+                    duration = time.time() - start_time
+                    print(f"⏱️ 工具【{original_name}】执行耗时: {duration:.3f} 秒")
+
+                    print(f"📤 工具执行结果: {content}")
+
+                    history.append({
+                        "role": "tool",
+                        "tool_call_id": call.id,
+                        "content": content
+                    })
+
+            else:
+                print(f"\n🏁 最终AI回复: {msg.content}")
+                print(f"======================================\n")
+
+                return {
+                    "content": msg.content,
+                    "tool_calls": None,
+                    "full_history": history
+                }
+            
+    async def clean(self):
         """清理所有资源"""
         self.exit_stack.aclose()
         self.sessions.clear()
@@ -202,70 +230,160 @@ class MCPClient:
 
 mcp_client = MCPClient()
 
-#定义工具名和工具函数之间的对应关系
-def main():
-    # 启动并初始化 MCP 客户端
-    try:
-        # 连接多个 MCP Streamable HTTP 服务器
-        #连接数据库数据分析MCP服务器
-        mcp_client.connect_to_server(
-            "search_db_mcp",
-            f"http://{server_url}:9004/mcp",  #SSE协议的固定路由 9004是注释版
-            "streamable-http"
-        )
-        # 连接Python代码执行图形数据分析MCP服务器
-        mcp_client.connect_to_server(
-            "python_chart_mcp",
-            f"http://{server_url}:9002/mcp",  #STREAMBALE HTTP协议的固定路由
-            "streamable-http"
-        )
-        #连接机器学习数据分析MCP服务器
-        mcp_client.connect_to_server(
-            "machine_learning_mcp",
-            f"http://{server_url}:9003/mcp",  #STREAMBALE HTTP协议的固定路由
-            "streamable-http"
-        )
-        # 列出可用工具
-        mcp_client.list_tools()
-        # 运行交互式聊天循环
-        # mcp_client.chat_loop()
-    finally:
-        # 清理资源
-        mcp_client.clean()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # 启动时执行（等价于 startup）
+    await mcp_client.connect_to_server(
+        "search_db_mcp",
+        f"http://{server_url}:9004/mcp",
+        "streamable-http"
+    )
+    await mcp_client.connect_to_server(
+        "python_chart_mcp",
+        f"http://{server_url}:9002/mcp",
+        "streamable-http"
+    )
+    await mcp_client.connect_to_server(
+        "machine_learning_mcp",
+        f"http://{server_url}:9003/mcp",
+        "streamable-http"
+    )
+    print("✅ 所有 MCP 服务器连接完成")
+    tools = await mcp_client.list_all_tools()
+    print(f"✅ 加载工具数量：{len(tools)}")
 
+    yield  # 服务运行中
 
+    # 关闭时执行（等价于 shutdown）
+    await mcp_client.clean()
+    print("🛑 服务已关闭，资源已释放")
 
-# 2. 请求格式定义
+# 把 lifespan 传入 FastAPI
+app = FastAPI(
+    title="MCP + OpenAI/Ollama = AI for BI",
+    version="1.0",
+    lifespan=lifespan  # 关键在这里
+)
+# 跨域（WebUI 必备）
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 1. 本地系统固定路径（你真实存图片的地方）
+image_dir = os.getenv("IMAGE_DIR")
+IMAGE_STORAGE_DIR = Path(image_dir)
+IMAGE_STORAGE_DIR.mkdir(exist_ok=True)
+
+server_port = os.getenv("server_port")
+
+# 2. URL 访问路径（固定写 /images 就行！）
+IMAGE_URL_PREFIX = "/images"
+
+# 把 images 文件夹变成外网可访问
+# app.mount("/URL路径", StaticFiles(directory="本地硬盘路径"))
+app.mount(IMAGE_URL_PREFIX, StaticFiles(directory=IMAGE_STORAGE_DIR), name="images")
+image_prefix = "http://{}:{}/images/".format(server_url, server_port)
+
 class ChatRequest(BaseModel):
-    message: str          # 用户输入
-    history: list = None # 对话历史（可选）
-
-# 3. ---------------------- 你的 Agent 代码放这里 ----------------------
+    messages: List[Dict[str, Any]]
+    model: Optional[str] = None
 
 
-# 4. API 接口（WebUI 调用这个）
-@app.post("/chat")
-async def chat(request: ChatRequest):
-    # 调用你的 Agent
-    reply = mcp_client.chat_api(request.message, request.history)
-    return {"answer": reply}
+class ChatRequest(BaseModel):
+    messages: List[Dict[str, Any]]
+    model: Optional[str] = None
 
-# 如果你想让 任何 WebUI 都能无缝接入，可以封装成 OpenAI 兼容格式：
+@app.post("/chat/completions")
 @app.post("/v1/chat/completions")
-async def openai_compatible(request: dict):
-    # user_msg = request["messages"][-1]["content"]
-    # 输入所有的结果到 模型中，模型就有记忆了 
-    reply = mcp_client.chat_api( request["messages"])
-    # 返回的是 最新的结果
-    return {
-        "choices": [{"message": {"role": "assistant", "content": reply}}]
+async def openai_chat_completions(
+    req: ChatRequest,
+    request: Request  # 用来获取IP和请求路径
+):
+    # ===================== 日志：请求信息 =====================
+    client_ip = request.client.host
+    path = request.url.path
+    print(f"\n==================================================")
+    print(f"📥 收到聊天请求 | IP: {client_ip} | 路径: {path}")
+    print(f"📩 用户消息: {json.dumps(req.messages, ensure_ascii=False)}")
+    # =========================================================
+
+    # 执行核心逻辑
+    result = await mcp_client.process_query(req.messages)
+
+    # 构建返回
+    response = {
+        "id": "mcp-chat-001",
+        "object": "chat.completion",
+        "model": mcp_client.model,
+        "choices": [
+            {
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": result["content"]
+                },
+                "finish_reason": "stop"
+            }
+        ]
     }
 
-if __name__ == "__main__":
-    # init service
+    # ===================== 日志：返回结果 =====================
+    print(f"📤 AI 响应: {json.dumps(response, ensure_ascii=False, indent=2)}")
+    print(f"==================================================\n")
+    # ==========================================================
 
-    main()
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    return response
+
+# 同时支持 /v1/models 和 /models，彻底解决 OpenWebUI 404
+@app.get("/v1/models")
+@app.get("/models")
+async def list_models(request: Request):
+    
+    # ===================== 自动日志打印 =====================
+    client_ip = request.client.host
+    path = request.url.path
+    print(f"📥 收到模型列表请求 | IP: {client_ip} | 路径: {path}")
+    # =======================================================
+
+    response = {
+        "data": [
+            {
+                "id": MODULE_NAME,
+                "object": "model",
+                "created": 0,
+                "owned_by": "mcp-service",
+                "permission": []
+            }
+        ],
+        "object": "list"
+    }
+
+    # ===================== 打印返回结果 =====================
+    print(f"📤 返回模型列表: {json.dumps(response, ensure_ascii=False, indent=2)}")
+    # ========================================================
+
+    return response
+    
+
+@app.get("/health")
+async def health():
+    return {"status": "ok", "model": mcp_client.model}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(server_port))
+
+    """
+    # test command
+    curl http://localhost:8000/v1/chat/completions -H "Content-Type: application/json" -d '{
+  "model": "deepseek-chat",
+  "messages": [{"role":"user","content":"帮我查询一下数据库里的销售数据"}]
+}'
+
+    """
 
     # for test
 
