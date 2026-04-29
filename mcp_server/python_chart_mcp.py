@@ -83,6 +83,7 @@ plt.rcParams['axes.unicode_minus'] = False
 matplotlib.rcParams.update(plt.rcParams)
     7.画图不支持表情，画图的文本中不能有表情
     8.如果有中文要显示，字体不能设置太小，位置要多留点，不然会显示失败
+    9.图片的路径会保存到服务器，名称通过随机数生成保证唯一性
     :param script_content: 需要执行的Python代码字符串
     :return: 代码运行的最终结果或生成的图片路径信息描述
     """
