@@ -61,31 +61,17 @@ image_prefix = "http://{}:{}/images/".format(server_url, server_port)
 """
 这段代码实现运行一段python script脚本，根据生成的不同结果输出不同的内容
 1 做计算,写python代码做值的运算
-2 绘图,绘制统计图，注意只能绘制一张图
+2 绘图,绘制统计图,注意只能绘制一张图
 3 执行pythoh代码
 """
 @mcp.tool()
 async def run_python_script_tool(script_content: str):
     """
-    执行用户提供的Python代码，并返回执行结果或生成的图片路径，
-    注意：
-    1. 程序是再ubuntu22.04的python执行器，是后台运行的，要注意兼容性；
-    2. 只能返回一张图片,可执行代码中不需要保存图片；
-    3. 本工具会调用 plt.get_fignums()来保存图片,传入的代码不用plt.show();
-    4. 可执行的结果只会返回一次执行的结果；
-    5. 可能保存图片失败，要重新请求
-    6. 为了更好的支持中文图片显示，必须带上如下六行：
-import matplotlib
-matplotlib.use('Agg')  # 无界面服务器必须加
-plt.rcParams['font.family'] = "Noto Sans CJK JP"
-plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "DejaVu Sans"]
-plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams.update(plt.rcParams)
-    7.画图不支持表情，画图的文本中不能有表情
-    8.如果有中文要显示，字体不能设置太小，位置要多留点，不然会显示失败
+    执行用户提供的Python代码，并返回执行结果或生成的图片路径
     :param script_content: 需要执行的Python代码字符串
     :return: 代码运行的最终结果或生成的图片路径信息描述
     """
+    # 获取执行环境中的全局变量
     print("run_python_script_tool, input:{}".format(script_content), flush=True)
     out = None
     execution_env = globals().copy()
@@ -93,66 +79,68 @@ matplotlib.rcParams.update(plt.rcParams)
         'plt': plt,
         '__name__': '__main__'
     })
-
-    # ===================== 【终极解决：强制加载中文字体，无视系统环境】 =====================
-    import matplotlib
-    matplotlib.use('Agg')  # 无界面服务器必须加
     
-    # ✅ ✅ ✅ 关键：强制使用 matplotlib 自带的中文兼容字体 + 表情
-    # plt.rcParams['font.family'] = 'Noto Sans CJK JP'
-    # plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'DejaVu Sans', 'WenQuanYi Zen Hei']
-    # plt.rcParams['axes.unicode_minus'] = False
-    plt.rcParams['font.family'] = "Noto Sans CJK JP, Noto Color Emoji"
-    plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "Noto Color Emoji", "DejaVu Sans"]
-    plt.rcParams['axes.unicode_minus'] = False
-    
-    # ✅ ✅ ✅ 兜底：清除缓存、强制重建配置
-    matplotlib.rcParams.update(plt.rcParams)
-    # ====================================================================================
-
     try:
-        # 执行前清空所有图
-        plt.close('all')
-        
-        # 阶段一：表达式求值
+        # 阶段一：表达式求值尝试
         try:
+            # 尝试执行python 表达式代码
             evaluated_result = eval(script_content, execution_env)
+            print("执行表达式的结果为:", evaluated_result, flush=True)
+            # 尝试画图
+            # 检查是否有活动的matplotlib图形
             if plt.get_fignums():
                 image_path = save_matplotlib_figures()
                 plt.close('all')
-                print("image save path:{}".format(image_path))
-                return format_output(f"根据您的要求,生成的统计图路径:{image_path}")
-            print("返回执行结果：{}".format(evaluated_result))
-            return format_output(str(evaluated_result))
+                if image_path:
+                    out = format_output(f"根据您的要求,生成的统计图路径:{image_path}")
+                    print("run_python_script_tool output:{}".format(out), flush=True)
+                    return out
+            out = format_output(str(evaluated_result)) #输出表达式运行结果
+            print("run_python_script_tool output:{}".format(out), flush=True)
+            return out
         except SyntaxError:
-            plt.close('all')
-            pass
+            pass  # 不是简单表达式，继续执行代码块
 
-        # 阶段二：执行代码块
+        # 阶段二：记录执行前的环境状态
         pre_execution_vars = set(execution_env.keys())
+        # 执行代码块
         try:
             exec(script_content, execution_env)
+            print("执行python 代码块成功", flush=True)
         except Exception as error:
             plt.close('all')
-            print("exec error:{}".format(error))
-            return format_output(f"执行错误: {str(error)}")
-
-        # 自动保存图片
+            out = format_output(f"执行过程中发生错误: {str(error)}")
+            print("run_python_script_tool output:{}".format(out), flush=True)
+            return format_output(f"执行过程中发生错误: {str(error)}")
+        # 检查是否有活动的matplotlib图形,如果有图形则返回图形所在的路径（生产环境下返回类似oss url链接,一个道理）
         if plt.get_fignums():
             image_path = save_matplotlib_figures()
             plt.close('all')
-            print("image save path:{}".format(image_path))
-            return format_output(f"根据您的要求,生成的统计图路径:{image_path}")
+            # output["images"] = generated_images
+            out = format_output(f"根据您的要求,生成的统计图路径:{image_path}")
+            print("run_python_script_tool output:{}".format(out), flush=True)
+            return out
 
-        return format_output("代码执行完成，未产生新的变量或图片")
+        # 阶段三：分析执行后的环境变化;执行完的结果保存在变量中
+        post_execution_vars = set(execution_env.keys())
+        created_vars = post_execution_vars - pre_execution_vars
+        # 处理执行结果
+        output = {}
+        if created_vars:
+            output["variables"] = prepare_output_data(created_vars, execution_env)
 
+        if not output:
+            out = format_output("代码执行完成，未产生新的变量或图片") #print(1)
+            print("run_python_script_tool output:{}".format(out), flush=True)
+            return out 
+        return format_output(output)
     except Exception as e:
         plt.close('all')
-        print("exec error:{}".format(str(e)))
-        return format_output(f"系统错误: {str(e)}")
+        out = format_output(f"系统错误: {str(e)}")
+        print("run_python_script_tool output:{}".format(out), flush=True)
+        return out
 
-
-# 生产环境下这个函数中还需要实现将图像上传到对应的云空间，拿到对应的图像的url link,后续拿着这个link交给前端做呈现渲染
+#生产环境下这个函数中还需要实现将图像上传到对应的云空间，拿到对应的图像的url link,后续拿着这个link交给前端做呈现渲染
 def save_matplotlib_figures():
     """保存当前所有的matplotlib图形到文件"""
     for i in plt.get_fignums():
@@ -163,8 +151,6 @@ def save_matplotlib_figures():
         # 保存图片
         fig.savefig(image_path, format='png', bbox_inches='tight')
         image_path = str(image_path.absolute()) #上传OSS拿到image url
-        if not os.path.exists(image_path):
-            return "error save image"
         image_url = image_prefix + image_name
     # return f"![生成的图表]({image_url})"
     return image_url
@@ -206,14 +192,10 @@ async def translate_to_python_plot_script(graph_demand:str, data_desc:str) -> st
     (1) 若没有提供合适的数据完成绘图代码生成，请返回:我无法生成绘图代码
     (2) 请勿生成需求要求外的代码，请勿生成非绘图代码。
     (3) 你的任务仅仅是生成可执行python代码，请勿做任何分析或解释。
-    (4) 代码开头必须固定加入这七行（解决Ubuntu服务器中文乱码和表情显示）：
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = "Noto Sans CJK JP, Noto Color Emoji" # 【终极版：中文 + 表情 同时显示】
-plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "Noto Color Emoji", "DejaVu Sans"]
-plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams.update(plt.rcParams) # 强制刷新配置
+    (4) 代码开头必须固定加入这三行（解决Ubuntu服务器中文乱码）：
+    import matplotlib.pyplot as plt
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+    plt.rcParams['axes.unicode_minus'] = False
     (5) 不要使用 plt.show()，代码只画图、不显示。
 
     举例1:
@@ -340,44 +322,6 @@ if __name__ == "__main__":
         print("result:",result)
     asyncio.run(zf())
 
-
-def test_run_python_script_tool2():
-    y ="""
-import matplotlib.pyplot as plt
-import numpy as np
-
-# 数据
-categories = ['运动用品', '食品']
-avg_prices = [297.74, 5.92]
-
-# 创建图表
-fig, ax = plt.subplots(figsize=(10, 6))
-# 创建柱状图
-bars = ax.bar(categories, avg_prices, color=['#FF6B6B', '#4ECDC4'], width=0.6)
-# 添加数值标签
-for bar, price in zip(bars, avg_prices):
-    height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2., height + 5,
-                    f'¥{price:.2f}', ha='center', va='bottom', fontsize=12, fontweight='bold')
-# 设置标题和标签
-ax.set_title('运动用品 vs 食品 平均价格对比', fontsize=16, fontweight='bold', pad=20)
-ax.set_ylabel('平均价格（元）', fontsize=12)\nax.set_xlabel('商品类别', fontsize=12)
-
-# 设置y轴范围
-ax.set_ylim(0, max(avg_prices) * 1.2)
-# 添加网格
-ax.grid(axis='y', alpha=0.3, linestyle='--')
-
-# 添加价格差异说明
-price_ratio = avg_prices[0] / avg_prices[1]\nax.text(0.5, max(avg_prices) * 0.9, \n        f'运动用品平均价格是食品的{price_ratio:.0f}倍', \n        ha='center', fontsize=12, fontweight='bold',\n        bbox=dict(boxstyle='round,pad=0.5', facecolor='yellow', alpha=0.3))\n\nplt.tight_layout()\nplt.show()
-
-    """ 
-    import asyncio
-    async def xf():
-        result=await run_python_script_tool(y)
-        print("result:",result)
-    asyncio.run(xf())
-
 def test_translate_to_python_plot_script():
     print("=================test_translate_to_python_plot_script=======================")
     print("=================测试根据一句话生成画图代码=======================")
@@ -390,41 +334,6 @@ def test_translate_to_python_plot_script():
         code_result=await translate_to_python_plot_script(graph_demand="绘制一张饼图",data_desc="纸巾12月销量数据为:[4,5,8,3,7,0,20,55,7,89,22,13]")
         print(code_result)
     asyncio.run(x())
-    print("================(1) 绘制图形返回值测试===================")
-    x="""
-import os
-import matplotlib
-import matplotlib.pyplot as plt
-matplotlib.use('Agg')  # 在导入pyplot之前设置后端
-import numpy as np
-# 修正后的数据
-months = np.arange(1, 13)  # 12个月
-product_A_sales = [1, 2, 3, 4, 5, 5, 6, 2, 4, 8, 10, 9]
-# 补充了一个值以满足12个月的需求
-# 绘制柱状图\n
-plt.figure(figsize=(10, 6))
-plt.bar(months, product_A_sales, color='blue', label='Product A Sales')
-plt.show()
-print("11111")
-plt.xlabel('Month')
-plt.ylabel('Sales')
-plt.title('Monthly Sales of Product A')
-plt.xticks(months)
-plt.legend()
-# plt.grid(True)
-# 保存到当前目录下的 "output" 文件夹
-output_dir = "./out_images/"
-print(output_dir)
-os.makedirs(output_dir, exist_ok=True)  # 确保文件夹存在
-save_path = os.path.join(output_dir, "product_A_sales.png")  # 文件路径
-plt.savefig(save_path, dpi=300, bbox_inches='tight')  # 保存为PNG
-    """
-    
-    import asyncio
-    async def xf():
-        result=await run_python_script_tool(x)
-        print("result:",result)
-    asyncio.run(xf())
 
 if __name__ == "__main__":
     # 以标准 streamable-http方式运行 MCP 服务器
@@ -434,6 +343,5 @@ if __name__ == "__main__":
 
     # test
     # test_run_python_script_tool()
-    # test_run_python_script_tool2()
     # test_translate_to_python_plot_script()
 

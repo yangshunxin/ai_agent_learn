@@ -156,7 +156,7 @@ class MCPClient:
                 messages=history,
                 tools=tools if tools else None,
                 tool_choice="auto" if tools else None,
-                max_tokens=4096,
+                # max_tokens=4096,
                 temperature=0,
                 stream=False
             )
@@ -375,6 +375,7 @@ async def health():
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(server_port))
+    # nohup python  mcp_server/multi_mcp_service.py > log.multi_mcp_service 2>&1 & 
 
     """
     # test command
@@ -388,10 +389,10 @@ if __name__ == "__main__":
     # for test
 
     #text2sql
-    #查询一下运动用品平均价格与食品平均价格哪个高
-    #手工艺品总共有多少个商品
-    #分析下梦彤的用户画像，从其购买的物品、职业、个人描述来分析
-    #对用户“梦彤”做一下产品推荐
+    # 查询一下运动用品平均价格与食品平均价格哪个高
+    # 手工艺品总共有多少个商品
+    # 分析下梦彤的用户画像，从其购买的物品、职业、个人描述来分析
+    # 对用户“梦彤”做一下产品推荐
     
     # 相比上个月，这个月运动品价格涨的快还是食品价格涨的快
 
@@ -401,11 +402,12 @@ if __name__ == "__main__":
     #写一段从1+2+..+100的python代码，并执行
     #通过写一段python代码,计算一下365882*876545等于多少
 
-    #text2sql+text2python实现chart+machine_learning
-    #查询商品洗碗布的月销量数据，使用python语言生成代码完成绘制一张以月为维度的销量柱状图
-    #查询商品"洗碗布"的月销量数据，绘制一张以月为维度的销量柱状图
-    #查询银耳的用户评论和星级数据，并分析评论好坏与星级两者的相关性，是否是星级越高用户越满意
-    #根据银耳前十二个月的销量，预测下一个月的销量，
-    #根据银耳前十二个月的销量，预测下一个月的销量，并画出趋势图
+    # text2sql+text2python实现chart+machine_learning
+    # 查询商品洗碗布的月销量数据，使用python语言生成代码完成绘制一张以月为维度的销量柱状图
+    # 查询商品"洗碗布"的月销量数据，绘制一张以月为维度的销量柱状图
+    # 查询银耳的用户评论和星级数据，并分析评论好坏与星级两者的相关性，是否是星级越高用户越满意
+    # 根据银耳前十二个月的销量，预测下一个月的销量，
+    # 根据银耳前十二个月的销量，预测下一个月的销量，并画出趋势图
+    # 可以对比一下银耳和其他类似商品（如木耳、红枣）的销量趋势吗？
 
 

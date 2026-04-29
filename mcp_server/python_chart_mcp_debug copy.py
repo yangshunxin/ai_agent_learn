@@ -61,28 +61,13 @@ image_prefix = "http://{}:{}/images/".format(server_url, server_port)
 """
 这段代码实现运行一段python script脚本，根据生成的不同结果输出不同的内容
 1 做计算,写python代码做值的运算
-2 绘图,绘制统计图，注意只能绘制一张图
+2 绘图,绘制统计图,注意只能绘制一张图
 3 执行pythoh代码
 """
 @mcp.tool()
 async def run_python_script_tool(script_content: str):
     """
-    执行用户提供的Python代码，并返回执行结果或生成的图片路径，
-    注意：
-    1. 程序是再ubuntu22.04的python执行器，是后台运行的，要注意兼容性；
-    2. 只能返回一张图片,可执行代码中不需要保存图片；
-    3. 本工具会调用 plt.get_fignums()来保存图片,传入的代码不用plt.show();
-    4. 可执行的结果只会返回一次执行的结果；
-    5. 可能保存图片失败，要重新请求
-    6. 为了更好的支持中文图片显示，必须带上如下六行：
-import matplotlib
-matplotlib.use('Agg')  # 无界面服务器必须加
-plt.rcParams['font.family'] = "Noto Sans CJK JP"
-plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "DejaVu Sans"]
-plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams.update(plt.rcParams)
-    7.画图不支持表情，画图的文本中不能有表情
-    8.如果有中文要显示，字体不能设置太小，位置要多留点，不然会显示失败
+    执行用户提供的Python代码，并返回执行结果或生成的图片路径
     :param script_content: 需要执行的Python代码字符串
     :return: 代码运行的最终结果或生成的图片路径信息描述
     """
@@ -98,12 +83,9 @@ matplotlib.rcParams.update(plt.rcParams)
     import matplotlib
     matplotlib.use('Agg')  # 无界面服务器必须加
     
-    # ✅ ✅ ✅ 关键：强制使用 matplotlib 自带的中文兼容字体 + 表情
-    # plt.rcParams['font.family'] = 'Noto Sans CJK JP'
-    # plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'DejaVu Sans', 'WenQuanYi Zen Hei']
-    # plt.rcParams['axes.unicode_minus'] = False
-    plt.rcParams['font.family'] = "Noto Sans CJK JP, Noto Color Emoji"
-    plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "Noto Color Emoji", "DejaVu Sans"]
+    # ✅ ✅ ✅ 关键：强制使用 matplotlib 自带的中文兼容字体
+    plt.rcParams['font.family'] = 'Noto Sans CJK JP'
+    plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'DejaVu Sans']
     plt.rcParams['axes.unicode_minus'] = False
     
     # ✅ ✅ ✅ 兜底：清除缓存、强制重建配置
@@ -120,12 +102,9 @@ matplotlib.rcParams.update(plt.rcParams)
             if plt.get_fignums():
                 image_path = save_matplotlib_figures()
                 plt.close('all')
-                print("image save path:{}".format(image_path))
                 return format_output(f"根据您的要求,生成的统计图路径:{image_path}")
-            print("返回执行结果：{}".format(evaluated_result))
             return format_output(str(evaluated_result))
         except SyntaxError:
-            plt.close('all')
             pass
 
         # 阶段二：执行代码块
@@ -134,21 +113,18 @@ matplotlib.rcParams.update(plt.rcParams)
             exec(script_content, execution_env)
         except Exception as error:
             plt.close('all')
-            print("exec error:{}".format(error))
             return format_output(f"执行错误: {str(error)}")
 
         # 自动保存图片
         if plt.get_fignums():
             image_path = save_matplotlib_figures()
             plt.close('all')
-            print("image save path:{}".format(image_path))
             return format_output(f"根据您的要求,生成的统计图路径:{image_path}")
 
         return format_output("代码执行完成，未产生新的变量或图片")
 
     except Exception as e:
         plt.close('all')
-        print("exec error:{}".format(str(e)))
         return format_output(f"系统错误: {str(e)}")
 
 
@@ -163,8 +139,6 @@ def save_matplotlib_figures():
         # 保存图片
         fig.savefig(image_path, format='png', bbox_inches='tight')
         image_path = str(image_path.absolute()) #上传OSS拿到image url
-        if not os.path.exists(image_path):
-            return "error save image"
         image_url = image_prefix + image_name
     # return f"![生成的图表]({image_url})"
     return image_url
@@ -206,14 +180,10 @@ async def translate_to_python_plot_script(graph_demand:str, data_desc:str) -> st
     (1) 若没有提供合适的数据完成绘图代码生成，请返回:我无法生成绘图代码
     (2) 请勿生成需求要求外的代码，请勿生成非绘图代码。
     (3) 你的任务仅仅是生成可执行python代码，请勿做任何分析或解释。
-    (4) 代码开头必须固定加入这七行（解决Ubuntu服务器中文乱码和表情显示）：
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = "Noto Sans CJK JP, Noto Color Emoji" # 【终极版：中文 + 表情 同时显示】
-plt.rcParams['font.sans-serif'] = ["Noto Sans CJK JP", "Noto Color Emoji", "DejaVu Sans"]
-plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams.update(plt.rcParams) # 强制刷新配置
+    (4) 代码开头必须固定加入这三行（解决Ubuntu服务器中文乱码）：
+    import matplotlib.pyplot as plt
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+    plt.rcParams['axes.unicode_minus'] = False
     (5) 不要使用 plt.show()，代码只画图、不显示。
 
     举例1:
@@ -428,12 +398,12 @@ plt.savefig(save_path, dpi=300, bbox_inches='tight')  # 保存为PNG
 
 if __name__ == "__main__":
     # 以标准 streamable-http方式运行 MCP 服务器
-    mcp.run(transport='streamable-http')
+    # mcp.run(transport='streamable-http')
     # nohup python  mcp_server/python_chart_mcp.py > log.python_chart_mcp 2>&1 & 
     #uv run python_chart_mcp.py &
 
     # test
     # test_run_python_script_tool()
-    # test_run_python_script_tool2()
+    test_run_python_script_tool2()
     # test_translate_to_python_plot_script()
 
