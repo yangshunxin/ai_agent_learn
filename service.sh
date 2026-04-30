@@ -14,6 +14,9 @@ MCP_SERVICES=(
 MAIN_SERVICE="mcp_server/multi_mcp_service.py"
 MAIN_PORT=8000
 MAIN_LOG="log.multi_mcp_service"
+
+# 需要关闭的端口列表（只关这4个，绝对安全）
+STOP_PORTS=(9002 9003 9004 8000)
 # ======================================================
 
 # ---------------- 自动激活 conda 环境 ----------------
@@ -34,11 +37,20 @@ port_alive() {
     return $?
 }
 
-# 停止所有服务
+# 【安全版】根据端口停止进程（绝对不误杀）
 stop_all() {
-    pkill -f "python mcp_server/" 2>/dev/null
+    echo "🛑 正在安全停止服务（按端口关闭，不影响其他进程）..."
+    for port in "${STOP_PORTS[@]}"; do
+        if port_alive $port; then
+            pid=$(ss -lntup sport = :$port 2>/dev/null | grep -oP 'pid=\K\d+' | head -1)
+            if [ -n "$pid" ]; then
+                kill -9 $pid >/dev/null 2>&1
+                echo "✅ 已停止端口 $port (PID:$pid)"
+            fi
+        fi
+    done
     sleep 1
-    echo "🛑 所有服务已停止"
+    echo -e "\n🎉 所有服务已安全停止！"
 }
 
 # 启动单个服务
@@ -65,13 +77,13 @@ start_all() {
     echo "🔴 启动主服务..."
     start_service "$MAIN_SERVICE" $MAIN_PORT "$MAIN_LOG"
 
-    echo "✅ 所有服务已后台启动完成！"
+    echo -e "\n✅ 所有服务已后台启动完成！"
     echo "👉 打开监控：./mcp_service.sh monitor"
 }
 
 # ---------------- 实时监控面板（单独功能） ----------------
 monitor_panel() {
-    echo "✅ 已进入实时监控面板（1秒刷新） | 按 Ctrl+C 退出"
+    echo "✅ 已进入实时监控面板（5秒刷新） | 按 Ctrl+C 退出"
     while true; do
         clear
         echo "==================== MCP 服务实时监控 ===================="
@@ -113,7 +125,8 @@ monitor_panel() {
             sleep 1
         fi
 
-        sleep 1
+        # 刷新间隔：5秒
+        sleep 5
     done
 }
 
@@ -134,8 +147,8 @@ case "$1" in
     *)
         echo "用法："
         echo "  ./mcp_service.sh start      # 后台启动所有服务"
-        echo "  ./mcp_service.sh stop       # 停止所有服务"
+        echo "  ./mcp_service.sh stop       # 按端口安全停止（不误杀）"
         echo "  ./mcp_service.sh restart    # 重启所有服务"
-        echo "  ./mcp_service.sh monitor    # 单独打开实时监控面板（一直刷新）"
+        echo "  ./mcp_service.sh monitor    # 单独打开实时监控面板（5秒刷新）"
         ;;
 esac
