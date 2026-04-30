@@ -55,10 +55,10 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "graph_hello_world",
+            "name": "graph_flow-1",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/langGraph_basic_learning/graph_hello_world.py",
+            "program": "${workspaceFolder}/langGraph_basic_learning/graph_flow-1.py",
             "console": "integratedTerminal"
         },
         {
@@ -88,7 +88,14 @@
             "request": "launch",
             "program": "${workspaceFolder}/mcp_server/python_chart_mcp_debug.py",
             "console": "integratedTerminal"
-        }
+        },
+        {
+            "name": "graph_memory_checkpoint-2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/langGraph_basic_learning/graph_memory_checkpoint-2.py",
+            "console": "integratedTerminal"
+        },
         
     ]
 }
