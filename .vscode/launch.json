@@ -74,6 +74,20 @@
             "request": "launch",
             "program": "${workspaceFolder}/mcp_server/multi_mcp_service.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "mcp_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_test.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "python_chart_mcp_debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server/python_chart_mcp_debug.py",
+            "console": "integratedTerminal"
         }
         
     ]

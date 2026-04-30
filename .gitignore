@@ -1,4 +1,5 @@
 log.*
+log.machine_learning_mcp
 *.pyc
 out_images/
 # Byte-compiled / optimized / DLL files

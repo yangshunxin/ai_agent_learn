@@ -8,8 +8,10 @@ from io import BytesIO
 import re
 from dotenv import load_dotenv
 import os
+import json
 from openai import AsyncOpenAI
 import asyncio
+from langchain_core.runnables.graph_mermaid import MermaidDrawMethod
 #加载.env文件中的环境变量
 load_dotenv()
 #定义大模型调用函数，用于处理文本类模型生成功能
@@ -19,17 +21,17 @@ from dashscope import Generation
 import dashscope
 dashscope.base_http_api_url = 'https://dashscope.aliyuncs.com/api/v1'
 
+work_app = None
+agent_app = None
 
 def LLM_replay(messages):
-    response = Generation.call(
-        # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key = "sk-xxx",
+    response =  Generation.call(
         api_key=os.getenv("DASHSCOPE_API_KEY"),
-        model="qwen3-max",
-        messages=[{"role":"user","content":messages}],
+        model="qwen-turbo",
+        messages=messages,
         result_format="message",
         # 开启深度思考
         enable_thinking=False,
-        temperature = 0
     )
 
     if response.status_code == 200:
@@ -40,6 +42,7 @@ def LLM_replay(messages):
         # # 打印回复
         # print("=" * 20 + "完整回复" + "=" * 20)
         # print(response.output.choices[0].message.content)
+        # return response.output.choices[0].message.content[0]['text']
         return response.output.choices[0].message.content
     else:
         # print(f"HTTP返回码：{response.status_code}")
@@ -168,6 +171,7 @@ def branch():
 
 
 def work_flow():
+    global work_app
     # state 定义
     class ContentModerationState(TypedDict):
         content: str
@@ -256,6 +260,7 @@ def work_flow():
 
     # 编译
     app = workflow_graph.compile()
+    work_app = app
 
     # test
     result = app.invoke({"content": "随便聊聊"})
@@ -268,14 +273,17 @@ def work_flow():
     print(result)
     result = app.invoke({"content": "色情内容信息，政治暴力"})
     print(result)
-    # save
-    graph_png = app.get_graph().draw_mermaid_png()
+    # save  
+    # 默认会访问国外网站 mermaid.ink 生成图片，国内网络超时，所以报错。
+    # 本地渲染，不联网
+    graph_png = app.get_graph().draw_mermaid_png(draw_method=MermaidDrawMethod.PYPPETEER)
     img = mpimg.imread(BytesIO(graph_png), format='PNG')
     png_path = './langGraph_basic_learning/output/graph_workflow.png'
     plt.imsave(png_path, img)
 
 
 def agent_flow():
+    global agent_app
     # === State 定义 ===
     class AgentModerationState(TypedDict):
         content: str
@@ -299,31 +307,55 @@ def agent_flow():
 
         请以 JSON 格式返回：
         {
-            "has_issues": true/false,
+            "has_issues": true, 
             "issues": ["issue1", "issue2"],
             "severity": "low/medium/high",
             "confidence": 0.0-1.0
         }
+        字段解释：
+            has_issues： 是否含有敏感词
+            issues：类型为列表，内容为字符串，必须是输入的内容，如果有敏感词，就填入，可以有多个，都是字符串，如果没有就为空列表
+            severity：敏感等级，只能是这三个值low，medium和high
+            confidence：置信度分数，为float类型，0到1之间
+        比如：
+        很敏感的结果：
+        {
+            "has_issues": true, 
+            "issues": ["敏感词1", "敏感词2"],
+            "severity": "high",
+            "confidence": 1.0
+        }
+        返回的内容，必须json.load()能成功。
         """
-
+        # langchain的格式
+        # messages = [
+        #     SystemMessage(content=system_prompt),
+        #     HumanMessage(content=f"内容：{content}")
+        # ]
+        # 大模型的格式
         messages = [
-            SystemMessage(content=system_prompt),
-            HumanMessage(content=f"内容：{content}")
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"内容：{content}"}
         ]
         
 
         response = LLM_replay(messages)
-        return {"analysis": response.content}
+        try:
+            result = json.loads(response)
+            return {"analysis":result}
+        except:
+            # 解析失败，保守决策
+            return {"analysis":""
+            }
 
     def make_agent_decision(state: AgentModerationState) -> dict:
         """基于 LLM 分析做决策"""
         analysis = state["analysis"]
         content = state["content"]
 
-        system_prompt = """基于之前的分析结果，做出审核决策：
-        - approved: 内容正常，通过
-        - rejected: 明显违规，直接拒绝
-        - needs_review: 需要人工审核
+        system_prompt = """你是内容审核决策助手， 基于之前的分析结果，做出审核决策：
+        根据输入的内容，做出决策
+
 
         返回 JSON 格式：
         {
@@ -331,19 +363,31 @@ def agent_flow():
             "reason": "简短说明",
             "confidence": 0.0-1.0
         }
+        字段说明：
+            decision：表示最后的决定，为字符串，有三个值依次为：
+                - approved: 内容正常，通过
+                - rejected: 明显违规，直接拒绝
+                - needs_review: 需要人工审核
+            reason：做出上述决策的原因
+            confidence：做出上述决策的置信度
+        比如，如果对一个内容很有信息是正常信息就如下回复：
+        {
+            "decision": "approved",
+            "reason": "说明内容",
+            "confidence": 1.0
+        }
+        返回的内容，必须json.load()能成功。
         """
-
         messages = [
-            SystemMessage(content=system_prompt),
-            HumanMessage(content=f"原内容：{content}\n\n分析结果：{analysis}")
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"原内容：{content}\n\n分析结果：{analysis}"}
         ]
 
         response = LLM_replay(messages)
 
         # 简化处理：直接解析响应（实际应用中应该用 JSON mode）
-        import json
         try:
-            result = json.loads(response.content)
+            result = json.loads(response)
             return {
                 "decision": result["decision"],
                 "reason": result["reason"],
@@ -357,28 +401,22 @@ def agent_flow():
                 "confidence": 0.0
             }
     # === 路由函数 ===
-    def should_auto_decide(state: AgentModerationState) -> Literal["decide", "review"]:
+    def should_auto_decide(state: AgentModerationState) -> Literal["decide", "human_review"]:
         """根据分析结果决定是否需要人工"""
         # 这里可以添加更复杂的逻辑
         # 例如：如果分析中提到高风险，直接转人工
-        if "high" in state.get("analysis", "").lower():
-            return "review"
+        if dict == type(state.get("analysis")) and "has_issure" in state.get("analysis"):
+            return "human_review"
         return "decide"
 
     def human_review_placeholder(state: AgentModerationState) -> dict:
         """人工审核占位符（实际应用中会中断等待人工）"""
+        print("这里要人工审核", flush=True)
         return {
             "decision": "needs_review",
             "reason": "已转人工审核",
             "confidence": 1.0
         }
-
-    # === 构建 Agent Graph ===
-    agent_graph = StateGraph(AgentModerationState)
-
-    agent_graph.add_node("analyze", analyze_content)
-    agent_graph.add_node("decide", make_agent_decision)
-    agent_graph.add_node("human_review", human_review_placeholder)
 
     # === 构建 Agent Graph ===
     agent_graph = StateGraph(AgentModerationState)
@@ -408,9 +446,9 @@ def agent_flow():
 
     test_contents = [
         "这是一条正常的评论。",
-        "这包含脏话1的内容",
+        "我操你妈的，我日你祖宗十八代，干你娘",
         "AAAAAAAAAAAAAAAAAAA买买买！！！",
-        "讨论政治话题的内容"
+        "主席就是个垃圾"
     ]
 
     # === 测试 ===
@@ -418,15 +456,36 @@ def agent_flow():
     for content in test_contents:
         result = agent_app.invoke({"content": content})
         print(f"内容：{content}")
-        print(f"分析：{result.get('analysis', 'N/A')[:100]}...")
+        print(f"分析：{result.get('analysis', 'N/A')}")
         print(f"决策：{result['decision']}")
         print(f"原因：{result['reason']}")
         print(f"置信度：{result.get('confidence', 'N/A')}\n")
 
+# 混合方案
+# 第一层：workflow 快速过滤明显的违规
+# 第二层：Agent 处理边缘情况
+
+def hybird_approch(content: str):
+    # 1. 先调用workflow 快速检查
+    workflow_result = work_app.invoke({"content": content})
+    print("work_app result:{}".format(workflow_result))
+
+    # 2. 如果workflow 决策明确（approved 或 rejected），直接返回
+    if workflow_result['decision'] in ['approved', 'rejected']:
+        return workflow_result
+
+    # 3. 否则，使用Agent 做深度分析
+    agent_result = agent_app.invoke({"content": content})
+    print("agent_app result:{}".format(agent_result))
+    return agent_result
+
 if __name__=="__main__":
     # hello_world()    
     # branch()
-    # work_flow()
+    work_flow()
+    print("==="*30)
     agent_flow()
+    print("==="*30)
+    print(hybird_approch("我就是闲聊，但是也聊工作，比较模糊，不好判断"))
 
 
